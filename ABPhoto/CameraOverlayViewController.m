@@ -14,6 +14,7 @@
 
 @implementation CameraOverlayViewController
 @synthesize imagePickerController;
+@synthesize cameraParams;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +29,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //Default camera choice is the back camera, of course.
+    cameraParams.selectionParam = kBackCamera;
+    [self loadCameraCapabilities];
+    if (cameraParams.capability == kCameraNotAvailable) {
+        [gridButton setEnabled:NO];
+        [cameraSelectionButton setEnabled:NO];
+        [flashSelectionButton setEnabled:NO];
+    } else if (cameraParams.capability == kCameraBackOnly) {
+        [cameraSelectionButton setEnabled:NO];
+    }
+    
+    if(cameraParams.flashParam == kFlashNotAvailable) {
+        [flashSelectionButton setEnabled:NO];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,8 +63,40 @@
 - (IBAction)gridButtonPressed:(id)sender {
 }
 - (IBAction)cameraSelectionButtonPressed:(id)sender {
+    
 }
 
 - (IBAction)flashSelectionButtonPressed:(id)sender {
 }
+
+- (void)loadCameraCapabilities {
+    if(imagePickerController != nil) {
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            Boolean front;
+            Boolean back;
+            front = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
+            back = [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+            if(front && back) {
+                cameraParams.capability = kCameraBackAndFront;
+            }else if (back) {
+                cameraParams.capability = kCameraBackOnly;
+            }
+        } else {
+            cameraParams.capability = kCameraNotAvailable;
+        }
+    }
+    Boolean flash;
+    if(cameraParams.selectionParam == kFrontCamera) {
+        flash = [UIImagePickerController isFlashAvailableForCameraDevice:UIImagePickerControllerCameraDeviceFront];
+        
+    }else {
+        flash = [UIImagePickerController isFlashAvailableForCameraDevice:UIImagePickerControllerCameraDeviceRear];
+    }
+    if (flash) {
+        cameraParams.flashParam = kFlashAuto;
+    }
+    
+}
+
+
 @end

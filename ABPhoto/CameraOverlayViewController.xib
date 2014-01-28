@@ -6,10 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraOverlayViewController">
             <connections>
+                <outlet property="cameraImageView" destination="dxc-gT-zsb" id="ral-vH-OIi"/>
                 <outlet property="cameraSelectionButton" destination="jEk-mo-Tuc" id="4mV-N6-ncF"/>
                 <outlet property="flashSelectionButton" destination="hVP-YT-Rf5" id="raJ-f9-0WG"/>
                 <outlet property="gridButton" destination="sV4-ES-KGB" id="iT0-XJ-gqp"/>
-                <outlet property="gridImageView" destination="dxc-gT-zsb" id="hNk-mw-bp8"/>
+                <outlet property="gridImageView" destination="NzU-sv-SBV" id="XWR-p1-qaC"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VR0-dL-6I0">
-                    <rect key="frame" x="130" y="448" width="60" height="60"/>
+                    <rect key="frame" x="130" y="447" width="60" height="60"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
@@ -31,8 +32,12 @@
                         <action selector="shutterButtonPressed:" destination="-1" eventType="touchUpInside" id="BRv-9w-OC9"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-ES-KGB">
-                    <rect key="frame" x="44" y="408" width="46" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-gT-zsb" userLabel="cameraImageView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-ES-KGB" userLabel="gridButton">
+                    <rect key="frame" x="43" y="386" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Y">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,8 +46,8 @@
                         <action selector="gridButtonPressed:" destination="-1" eventType="touchUpInside" id="W6X-NX-bNy"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEk-mo-Tuc">
-                    <rect key="frame" x="137" y="408" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEk-mo-Tuc" userLabel="cameraSelectionButton">
+                    <rect key="frame" x="136" y="386" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="B">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,8 +56,8 @@
                         <action selector="cameraSelectionButtonPressed:" destination="-1" eventType="touchUpInside" id="DBF-Sa-oUq"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-YT-Rf5">
-                    <rect key="frame" x="230" y="408" width="46" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-YT-Rf5" userLabel="flashSelectionButton">
+                    <rect key="frame" x="231" y="386" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="A">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,8 +66,8 @@
                         <action selector="flashSelectionButtonPressed:" destination="-1" eventType="touchUpInside" id="nEZ-m3-Gew"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-gT-zsb">
-                    <rect key="frame" x="25" y="25" width="270" height="360"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NzU-sv-SBV" userLabel="gridImageView">
+                    <rect key="frame" x="0.0" y="53" width="320" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

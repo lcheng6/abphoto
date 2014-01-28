@@ -44,6 +44,7 @@
         imagePicker.cameraOverlayView = cameraOverlayController.view;
         imagePicker.allowsEditing = NO;
         cameraOverlayController.imagePickerController = imagePicker;
+        //imagePicker.cameraViewTransform = CGAffineTransformMakeScale(.9375f, .9375f);
         
     }
     else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {

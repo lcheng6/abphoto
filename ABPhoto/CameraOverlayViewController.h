@@ -12,10 +12,12 @@
 
 @interface CameraOverlayViewController : UIViewController
 {
+    __weak IBOutlet UIImageView *cameraImageView;
     __weak IBOutlet UIButton *gridButton;
     __weak IBOutlet UIButton *cameraSelectionButton;
     __weak IBOutlet UIButton *flashSelectionButton;
     __weak IBOutlet UIImageView *gridImageView;
+
     
 }
 
@@ -23,6 +25,8 @@
 - (IBAction)gridButtonPressed:(id)sender;
 - (IBAction)cameraSelectionButtonPressed:(id)sender;
 - (IBAction)flashSelectionButtonPressed:(id)sender;
+- (void)loadCameraCapabilities;
+
 @property(nonatomic, weak) UIImagePickerController * imagePickerController;
 @property(nonatomic, assign) CameraParams cameraParams;
 

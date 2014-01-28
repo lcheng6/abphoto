@@ -9,13 +9,11 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    kGridAvailable,
     kGridOn,
     kGridOff
 } CameraGridParam;
 
 typedef enum {
-    kCameraNotAvailable,
     kBackCamera,
     kFrontCamera
 } CameraSelectionParam;
@@ -27,7 +25,14 @@ typedef enum {
     KFlashOff
 } CameraFlashParam;
 
+typedef enum {
+    kCameraNotAvailable,
+    kCameraBackOnly,
+    kCameraBackAndFront
+} CameraCapability;
+
 typedef struct {
+    CameraCapability capability;
     CameraGridParam gridParam;
     CameraSelectionParam selectionParam;
     CameraFlashParam flashParam;
