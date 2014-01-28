@@ -21,6 +21,12 @@
 		C4CC8A8E1897CE4A001F7424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A701897CE4A001F7424 /* UIKit.framework */; };
 		C4CC8A961897CE4A001F7424 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8A941897CE4A001F7424 /* InfoPlist.strings */; };
 		C4CC8A981897CE4A001F7424 /* ABPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8A971897CE4A001F7424 /* ABPhotoTests.m */; };
+		C4CC8AA21897CE55001F7424 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8AA11897CE55001F7424 /* QuartzCore.framework */; };
+		C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AA61897CE96001F7424 /* CameraOverlayViewController.m */; };
+		C4CC8AA91897CE96001F7424 /* CameraOverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AA71897CE96001F7424 /* CameraOverlayViewController.xib */; };
+		C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AAB1897CF1F001F7424 /* AmericanBoxingLogo@2x.png */; };
+		C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */; };
+		C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,14 @@
 		C4CC8A931897CE4A001F7424 /* ABPhotoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ABPhotoTests-Info.plist"; sourceTree = "<group>"; };
 		C4CC8A951897CE4A001F7424 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C4CC8A971897CE4A001F7424 /* ABPhotoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABPhotoTests.m; sourceTree = "<group>"; };
+		C4CC8AA11897CE55001F7424 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C4CC8AA51897CE96001F7424 /* CameraOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraOverlayViewController.h; sourceTree = "<group>"; };
+		C4CC8AA61897CE96001F7424 /* CameraOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraOverlayViewController.m; sourceTree = "<group>"; };
+		C4CC8AA71897CE96001F7424 /* CameraOverlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayViewController.xib; sourceTree = "<group>"; };
+		C4CC8AAB1897CF1F001F7424 /* AmericanBoxingLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AmericanBoxingLogo@2x.png"; path = "Images/AmericanBoxingLogo@2x.png"; sourceTree = "<group>"; };
+		C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AmericanBoxingOverlay.png; path = Images/AmericanBoxingOverlay.png; sourceTree = "<group>"; };
+		C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedPhotoViewController.h; sourceTree = "<group>"; };
+		C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedPhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CC8AA21897CE55001F7424 /* QuartzCore.framework in Frameworks */,
 				C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */,
 				C4CC8A711897CE4A001F7424 /* UIKit.framework in Frameworks */,
 				C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */,
@@ -101,6 +116,7 @@
 		C4CC8A6B1897CE4A001F7424 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC8AA11897CE55001F7424 /* QuartzCore.framework */,
 				C4CC8A6C1897CE4A001F7424 /* Foundation.framework */,
 				C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */,
 				C4CC8A701897CE4A001F7424 /* UIKit.framework */,
@@ -112,11 +128,15 @@
 		C4CC8A721897CE4A001F7424 /* ABPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC8AA41897CE6B001F7424 /* CameraOverlayController */,
+				C4CC8AA31897CE5A001F7424 /* MenuViewControllers */,
 				C4CC8A7B1897CE4A001F7424 /* AppDelegate.h */,
 				C4CC8A7C1897CE4A001F7424 /* AppDelegate.m */,
 				C4CC8A7E1897CE4A001F7424 /* Main.storyboard */,
 				C4CC8A811897CE4A001F7424 /* ViewController.h */,
 				C4CC8A821897CE4A001F7424 /* ViewController.m */,
+				C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */,
+				C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */,
 				C4CC8A841897CE4A001F7424 /* Images.xcassets */,
 				C4CC8A731897CE4A001F7424 /* Supporting Files */,
 			);
@@ -126,6 +146,7 @@
 		C4CC8A731897CE4A001F7424 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC8AAA1897CECA001F7424 /* Images */,
 				C4CC8A741897CE4A001F7424 /* ABPhoto-Info.plist */,
 				C4CC8A751897CE4A001F7424 /* InfoPlist.strings */,
 				C4CC8A781897CE4A001F7424 /* main.m */,
@@ -150,6 +171,32 @@
 				C4CC8A941897CE4A001F7424 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4CC8AA31897CE5A001F7424 /* MenuViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MenuViewControllers;
+			sourceTree = "<group>";
+		};
+		C4CC8AA41897CE6B001F7424 /* CameraOverlayController */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC8AA51897CE96001F7424 /* CameraOverlayViewController.h */,
+				C4CC8AA61897CE96001F7424 /* CameraOverlayViewController.m */,
+				C4CC8AA71897CE96001F7424 /* CameraOverlayViewController.xib */,
+			);
+			name = CameraOverlayController;
+			sourceTree = "<group>";
+		};
+		C4CC8AAA1897CECA001F7424 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC8AAB1897CF1F001F7424 /* AmericanBoxingLogo@2x.png */,
+				C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4CC8A851897CE4A001F7424 /* Images.xcassets in Resources */,
+				C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */,
 				C4CC8A771897CE4A001F7424 /* InfoPlist.strings in Resources */,
+				C4CC8AA91897CE96001F7424 /* CameraOverlayViewController.xib in Resources */,
 				C4CC8A801897CE4A001F7424 /* Main.storyboard in Resources */,
+				C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +301,8 @@
 			files = (
 				C4CC8A831897CE4A001F7424 /* ViewController.m in Sources */,
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
+				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,
+				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
 				C4CC8A791897CE4A001F7424 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
