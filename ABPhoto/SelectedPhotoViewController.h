@@ -10,7 +10,9 @@
 
 @interface SelectedPhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
+    __weak IBOutlet UIImageView *baseImage;
     
+    __weak IBOutlet UIImageView *overlayImage;
 }
 
 @end

@@ -21,6 +21,7 @@
 - (IBAction)gridButtonPressed:(id)sender;
 - (IBAction)cameraSelectionButtonPressed:(id)sender;
 - (IBAction)flashSelectionButtonPressed:(id)sender;
+@property(nonatomic, weak) UIImagePickerController * imagePickerController;
 
 
 @end

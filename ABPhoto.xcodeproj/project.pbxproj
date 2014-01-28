@@ -27,6 +27,8 @@
 		C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AAB1897CF1F001F7424 /* AmericanBoxingLogo@2x.png */; };
 		C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */; };
 		C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */; };
+		C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */; };
+		C4CC8ABC1897E96F001F7424 /* RightMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,10 @@
 		C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AmericanBoxingOverlay.png; path = Images/AmericanBoxingOverlay.png; sourceTree = "<group>"; };
 		C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedPhotoViewController.h; sourceTree = "<group>"; };
 		C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedPhotoViewController.m; sourceTree = "<group>"; };
+		C4CC8AB81897E96F001F7424 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenuViewController.h; sourceTree = "<group>"; };
+		C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
+		C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightMenuViewController.xib; sourceTree = "<group>"; };
+		C4CC8ABD1897ED40001F7424 /* CameraParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraParameter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,9 @@
 		C4CC8AA31897CE5A001F7424 /* MenuViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC8AB81897E96F001F7424 /* RightMenuViewController.h */,
+				C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */,
+				C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */,
 			);
 			name = MenuViewControllers;
 			sourceTree = "<group>";
@@ -186,6 +195,7 @@
 				C4CC8AA51897CE96001F7424 /* CameraOverlayViewController.h */,
 				C4CC8AA61897CE96001F7424 /* CameraOverlayViewController.m */,
 				C4CC8AA71897CE96001F7424 /* CameraOverlayViewController.xib */,
+				C4CC8ABD1897ED40001F7424 /* CameraParameter.h */,
 			);
 			name = CameraOverlayController;
 			sourceTree = "<group>";
@@ -278,6 +288,7 @@
 				C4CC8A851897CE4A001F7424 /* Images.xcassets in Resources */,
 				C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */,
 				C4CC8A771897CE4A001F7424 /* InfoPlist.strings in Resources */,
+				C4CC8ABC1897E96F001F7424 /* RightMenuViewController.xib in Resources */,
 				C4CC8AA91897CE96001F7424 /* CameraOverlayViewController.xib in Resources */,
 				C4CC8A801897CE4A001F7424 /* Main.storyboard in Resources */,
 				C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */,
@@ -299,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */,
 				C4CC8A831897CE4A001F7424 /* ViewController.m in Sources */,
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,

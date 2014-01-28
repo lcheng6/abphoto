@@ -1,19 +1,18 @@
 //
-//  CameraOverlayViewController.m
+//  RightMenuViewController.m
 //  ABPhoto
 //
 //  Created by Liang Cheng on 1/28/14.
 //  Copyright (c) 2014 Liang Cheng. All rights reserved.
 //
 
-#import "CameraOverlayViewController.h"
+#import "RightMenuViewController.h"
 
-@interface CameraOverlayViewController ()
+@interface RightMenuViewController ()
 
 @end
 
-@implementation CameraOverlayViewController
-@synthesize imagePickerController;
+@implementation RightMenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,20 +35,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)shutterButton:(id)sender {
-    if (imagePickerController!= NULL) {
-        [imagePickerController takePicture];
-    }
-    //TODO: need to set up the dismiss view routine in the 
-}
-- (IBAction)shutterButtonPressed:(id)sender {
-}
-
-- (IBAction)gridButtonPressed:(id)sender {
-}
-- (IBAction)cameraSelectionButtonPressed:(id)sender {
-}
-
-- (IBAction)flashSelectionButtonPressed:(id)sender {
-}
 @end

@@ -8,8 +8,12 @@
 
 #import "SelectedPhotoViewController.h"
 #import "CameraOverlayViewController.h"
+#import 
 
 @interface SelectedPhotoViewController ()
+{
+    
+}
 
 @end
 
@@ -35,6 +39,7 @@
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
         //imagePicker.showsCameraControls = NO;
         //imagePicker.cameraOverlayView = cameraOverlayController.view;
+        //imagePicker.allowsEditing = NO;
     }
     else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
