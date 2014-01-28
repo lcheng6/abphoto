@@ -36,13 +36,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)shutterButton:(id)sender {
-    if (imagePickerController!= NULL) {
+
+- (IBAction)shutterButtonPressed:(id)sender {
+    if (imagePickerController != nil) {
         [imagePickerController takePicture];
     }
-    //TODO: need to set up the dismiss view routine in the 
-}
-- (IBAction)shutterButtonPressed:(id)sender {
 }
 
 - (IBAction)gridButtonPressed:(id)sender {

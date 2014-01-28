@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CameraParameter.h"
 
 
 @interface CameraOverlayViewController : UIViewController
@@ -17,11 +18,13 @@
     __weak IBOutlet UIImageView *gridImageView;
     
 }
+
 - (IBAction)shutterButtonPressed:(id)sender;
 - (IBAction)gridButtonPressed:(id)sender;
 - (IBAction)cameraSelectionButtonPressed:(id)sender;
 - (IBAction)flashSelectionButtonPressed:(id)sender;
 @property(nonatomic, weak) UIImagePickerController * imagePickerController;
+@property(nonatomic, assign) CameraParams cameraParams;
 
 
 @end

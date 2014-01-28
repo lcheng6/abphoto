@@ -8,11 +8,11 @@
 
 #import "SelectedPhotoViewController.h"
 #import "CameraOverlayViewController.h"
-#import 
+#import "CameraParameter.h"
 
 @interface SelectedPhotoViewController ()
 {
-    
+    CameraOverlayViewController * cameraOverlayController;
 }
 
 @end
@@ -34,12 +34,17 @@
 	// Do any additional setup after loading the view.
     
     UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    if (cameraOverlayController == nil) {
+        cameraOverlayController = [[CameraOverlayViewController alloc] init];
+    }
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        CameraOverlayViewController * cameraOverlayController = [[CameraOverlayViewController alloc] init];
         [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
-        //imagePicker.showsCameraControls = NO;
-        //imagePicker.cameraOverlayView = cameraOverlayController.view;
-        //imagePicker.allowsEditing = NO;
+        
+        imagePicker.showsCameraControls = NO;
+        imagePicker.cameraOverlayView = cameraOverlayController.view;
+        imagePicker.allowsEditing = NO;
+        cameraOverlayController.imagePickerController = imagePicker;
+        
     }
     else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
         [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
@@ -61,6 +66,7 @@
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    baseImage.image = image;
     
 }
 @end
