@@ -70,4 +70,9 @@
     baseImage.image = image;
     
 }
+
+- (NSUInteger) supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
 @end

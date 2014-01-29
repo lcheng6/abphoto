@@ -29,6 +29,10 @@
 		C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */; };
 		C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */; };
 		C4CC8ABC1897E96F001F7424 /* RightMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */; };
+		C4F2824D189856B900A7F530 /* GridForCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824B189856B900A7F530 /* GridForCamera.png */; };
+		C4F2824E189856B900A7F530 /* GridForCamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824C189856B900A7F530 /* GridForCamera@2x.png */; };
+		C4F282511898586A00A7F530 /* MaskRegionForCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */; };
+		C4F282521898586A00A7F530 /* MaskRegionForCamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F282501898586A00A7F530 /* MaskRegionForCamera@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,10 @@
 		C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightMenuViewController.xib; sourceTree = "<group>"; };
 		C4CC8ABD1897ED40001F7424 /* CameraParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraParameter.h; sourceTree = "<group>"; };
+		C4F2824B189856B900A7F530 /* GridForCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GridForCamera.png; path = Images/GridForCamera.png; sourceTree = "<group>"; };
+		C4F2824C189856B900A7F530 /* GridForCamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GridForCamera@2x.png"; path = "Images/GridForCamera@2x.png"; sourceTree = "<group>"; };
+		C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MaskRegionForCamera.png; path = Images/MaskRegionForCamera.png; sourceTree = "<group>"; };
+		C4F282501898586A00A7F530 /* MaskRegionForCamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MaskRegionForCamera@2x.png"; path = "Images/MaskRegionForCamera@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,10 +211,22 @@
 		C4CC8AAA1897CECA001F7424 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C4F282531898596300A7F530 /* ABIcons */,
+				C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */,
+				C4F282501898586A00A7F530 /* MaskRegionForCamera@2x.png */,
+				C4F2824B189856B900A7F530 /* GridForCamera.png */,
+				C4F2824C189856B900A7F530 /* GridForCamera@2x.png */,
 				C4CC8AAB1897CF1F001F7424 /* AmericanBoxingLogo@2x.png */,
 				C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		C4F282531898596300A7F530 /* ABIcons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ABIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,10 +307,14 @@
 			files = (
 				C4CC8A851897CE4A001F7424 /* Images.xcassets in Resources */,
 				C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */,
+				C4F2824D189856B900A7F530 /* GridForCamera.png in Resources */,
 				C4CC8A771897CE4A001F7424 /* InfoPlist.strings in Resources */,
+				C4F282521898586A00A7F530 /* MaskRegionForCamera@2x.png in Resources */,
+				C4F2824E189856B900A7F530 /* GridForCamera@2x.png in Resources */,
 				C4CC8ABC1897E96F001F7424 /* RightMenuViewController.xib in Resources */,
 				C4CC8AA91897CE96001F7424 /* CameraOverlayViewController.xib in Resources */,
 				C4CC8A801897CE4A001F7424 /* Main.storyboard in Resources */,
+				C4F282511898586A00A7F530 /* MaskRegionForCamera.png in Resources */,
 				C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +548,7 @@
 				C4CC8A9D1897CE4A001F7424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C4CC8A9E1897CE4A001F7424 /* Build configuration list for PBXNativeTarget "ABPhotoTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +557,7 @@
 				C4CC8AA01897CE4A001F7424 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

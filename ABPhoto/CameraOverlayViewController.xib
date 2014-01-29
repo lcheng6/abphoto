@@ -32,12 +32,12 @@
                         <action selector="shutterButtonPressed:" destination="-1" eventType="touchUpInside" id="BRv-9w-OC9"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-gT-zsb" userLabel="cameraImageView">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MaskRegionForCamera.png" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-gT-zsb" userLabel="cameraImageView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sV4-ES-KGB" userLabel="gridButton">
-                    <rect key="frame" x="43" y="386" width="46" height="30"/>
+                    <rect key="frame" x="43" y="385" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Y">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -47,7 +47,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jEk-mo-Tuc" userLabel="cameraSelectionButton">
-                    <rect key="frame" x="136" y="386" width="46" height="30"/>
+                    <rect key="frame" x="136" y="385" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="B">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,7 +57,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVP-YT-Rf5" userLabel="flashSelectionButton">
-                    <rect key="frame" x="231" y="386" width="46" height="30"/>
+                    <rect key="frame" x="231" y="385" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="A">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -66,7 +66,7 @@
                         <action selector="flashSelectionButtonPressed:" destination="-1" eventType="touchUpInside" id="nEZ-m3-Gew"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NzU-sv-SBV" userLabel="gridImageView">
+                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GridForCamera.png" translatesAutoresizingMaskIntoConstraints="NO" id="NzU-sv-SBV" userLabel="gridImageView">
                     <rect key="frame" x="0.0" y="53" width="320" height="320"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -78,5 +78,7 @@
     </objects>
     <resources>
         <image name="AmericanBoxingLogo.png" width="60" height="60"/>
+        <image name="GridForCamera.png" width="320" height="320"/>
+        <image name="MaskRegionForCamera.png" width="320" height="426"/>
     </resources>
 </document>

@@ -14,7 +14,7 @@ typedef enum {
 } CameraGridParam;
 
 typedef enum {
-    kBackCamera,
+    kRearCamera,
     kFrontCamera
 } CameraSelectionParam;
 
@@ -22,7 +22,7 @@ typedef enum {
     kFlashNotAvailable,
     kFlashAuto,
     kFlashOn,
-    KFlashOff
+    kFlashOff
 } CameraFlashParam;
 
 typedef enum {
