@@ -223,15 +223,20 @@
     
     baseImageOriginalOrientation = image.imageOrientation;
     
-    UIImage * correctedImage = [self fixImageOrientation:image orientation:image.imageOrientation];
+    UIImage * correctedImage = [self fixImageOrientation:image];
     baseImage.image = correctedImage;
-    baseImageOriginalOrientation = image.imageOrientation;
+    
     logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
-    overlayImage.image = [self fixImageOrientation:logoImage orientation:baseImageOriginalOrientation];
+    overlayImage.image = [self fixOverlayImageOrientation:logoImage orientation:baseImageOriginalOrientation];
     
 }
 
-- (UIImage *)fixImageOrientation:(UIImage*)originalImage orientation:(UIImageOrientation)baseImageOrientation {
+- (UIImage *)fixOverlayImageOrientation:(UIImage*)originalOverlayImage orientation:(UIImageOrientation)baseImageOriginalOrientation
+{
+    return originalOverlayImage;
+}
+
+- (UIImage *)fixImageOrientation:(UIImage*)originalImage {
     
     // No-op if the orientation is already correct
     
@@ -241,7 +246,7 @@
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     CGContextRef ctx;
-    switch (baseImageOrientation) {
+    switch (originalImage.imageOrientation) {
         case UIImageOrientationDown:
         case UIImageOrientationDownMirrored:
         
@@ -284,7 +289,7 @@
 
     }
     
-    switch (baseImageOrientation) {
+    switch (originalImage.imageOrientation) {
         case UIImageOrientationUpMirrored:
         case UIImageOrientationDownMirrored:
             transform = CGAffineTransformTranslate(transform, originalImage.size.width, 0);
@@ -307,7 +312,7 @@
     // calculated above.
     
     CGContextConcatCTM(ctx, transform);
-    switch (baseImageOrientation) {
+    switch (originalImage.imageOrientation) {
         case UIImageOrientationLeft:
         case UIImageOrientationLeftMirrored:
         case UIImageOrientationRight:
