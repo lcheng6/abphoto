@@ -13,6 +13,8 @@
 @interface SelectedPhotoViewController ()
 {
     UIImageOrientation baseImageOriginalOrientation;
+    UIImage * logoImage;
+
     CameraOverlayViewController * cameraOverlayController;
     
     LogoTransform logoTransformInfo;
@@ -23,7 +25,8 @@
     UIRotationGestureRecognizer * rotateRecog;
     
     NSMutableSet * _activeRecognizers;
-
+    
+    
 }
 
 @end
@@ -222,6 +225,9 @@
     
     UIImage * correctedImage = [self fixImageOrientation:image orientation:image.imageOrientation];
     baseImage.image = correctedImage;
+    baseImageOriginalOrientation = image.imageOrientation;
+    logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
+    overlayImage.image = [self fixImageOrientation:logoImage orientation:baseImageOriginalOrientation];
     
 }
 

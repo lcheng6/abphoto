@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="65" width="320" height="427"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AmericanBoxingOverlay.png" id="0Ls-Z8-Cvk" userLabel="Overlay">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0Ls-Z8-Cvk" userLabel="Overlay">
                                 <rect key="frame" x="88" y="207" width="144" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -50,9 +50,6 @@
             <point key="canvasLocation" x="271" y="113"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="AmericanBoxingOverlay.png" width="289" height="289"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
