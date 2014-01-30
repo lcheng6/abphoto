@@ -38,7 +38,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit" id="ZIc-rD-Eo5"/>
+                    <navigationItem key="navigationItem" title="Edit" id="ZIc-rD-Eo5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="xwg-Lw-kes">
+                            <connections>
+                                <action selector="cameraButtonPressed:" destination="A76-K6-P1U" id="ntk-1S-esF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="6g1-rj-iZk">
+                            <connections>
+                                <segue destination="kMb-2C-Eat" kind="push" id="JVF-J1-7Yg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="baseImage" destination="2cl-Ss-7Wd" id="uCn-6f-uLe"/>
                         <outlet property="navigationBar" destination="ZIc-rD-Eo5" id="71U-Gm-5xW"/>
@@ -48,6 +59,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKK-DG-yka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="271" y="113"/>
+        </scene>
+        <!--View Controller - Sharing-->
+        <scene sceneID="14L-gI-05Q">
+            <objects>
+                <viewController id="kMb-2C-Eat" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jhH-Xz-zuq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qx4-Po-U2C">
+                                <rect key="frame" x="0.0" y="65" width="320" height="427"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sharing" id="Cgc-qC-xrV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UvT-ny-0s2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808" y="111"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

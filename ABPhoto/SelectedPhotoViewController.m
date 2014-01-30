@@ -342,4 +342,28 @@
 {
     return UIInterfaceOrientationMaskPortrait;
 }
+
+
+- (IBAction)cameraButtonPressed:(id)sender {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    if (cameraOverlayController == nil) {
+        cameraOverlayController = [[CameraOverlayViewController alloc] init];
+    }
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        
+        imagePicker.showsCameraControls = NO;
+        imagePicker.cameraOverlayView = cameraOverlayController.view;
+        imagePicker.allowsEditing = NO;
+        cameraOverlayController.imagePickerController = imagePicker;
+        //imagePicker.cameraViewTransform = CGAffineTransformMakeScale(.9375f, .9375f);
+        
+    }
+    else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    [imagePicker setDelegate:self];
+    [self presentViewController:imagePicker animated:NO completion:nil];
+}
 @end
