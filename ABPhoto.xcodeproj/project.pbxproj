@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
 		C4CC8A711897CE4A001F7424 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A701897CE4A001F7424 /* UIKit.framework */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
+		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CC8A6C1897CE4A001F7424 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -150,6 +153,8 @@
 				C4CC8A7B1897CE4A001F7424 /* AppDelegate.h */,
 				C4CC8A7C1897CE4A001F7424 /* AppDelegate.m */,
 				C4CC8A7E1897CE4A001F7424 /* Main.storyboard */,
+				C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */,
+				C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */,
 				C4CC8A811897CE4A001F7424 /* ViewController.h */,
 				C4CC8A821897CE4A001F7424 /* ViewController.m */,
 				C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */,
@@ -342,6 +347,7 @@
 				C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */,
 				C4F65AE5189AA5450025EF04 /* SharePhotoViewController.m in Sources */,
 				C4CC8A831897CE4A001F7424 /* ViewController.m in Sources */,
+				C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */,
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,
 				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
