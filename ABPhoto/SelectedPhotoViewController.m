@@ -9,6 +9,8 @@
 #import "SelectedPhotoViewController.h"
 #import "CameraOverlayViewController.h"
 #import "CameraParameter.h"
+#import "SharePhotoViewController.h"
+
 
 @interface SelectedPhotoViewController ()
 {
@@ -58,7 +60,6 @@
         imagePicker.cameraOverlayView = cameraOverlayController.view;
         imagePicker.allowsEditing = NO;
         cameraOverlayController.imagePickerController = imagePicker;
-        //imagePicker.cameraViewTransform = CGAffineTransformMakeScale(.9375f, .9375f);
         
     }
     else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
@@ -198,7 +199,11 @@
     }
     
     logoTransformInfo.logoTransform = CGAffineTransformScale(logoTransformInfo.logoTransform, localTransformInfo.scale,localTransformInfo.scale);
+    logoTransformInfo.scale = logoTransformInfo.scale * localTransformInfo.scale;
+    
     logoTransformInfo.logoTransform = CGAffineTransformRotate(logoTransformInfo.logoTransform, localTransformInfo.rotation);
+    logoTransformInfo.rotation = logoTransformInfo.rotation + localTransformInfo.rotation;
+    
     logoTransformInfo.translation = localTransformInfo.translation;
     
     NSLog(@"end recognizer scale %f rotate %f translation (%f, %f)", localTransformInfo.scale, localTransformInfo.rotation, localTransformInfo.translation.x, localTransformInfo.translation.y);
@@ -365,5 +370,62 @@
     }
     [imagePicker setDelegate:self];
     [self presentViewController:imagePicker animated:NO completion:nil];
+}
+
+- (UIImage *)generateCombinedImage {
+    UIImage * overlay = overlayImage.image;
+    CGContextRef context;
+    
+    //CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    UIGraphicsBeginImageContext(baseImage.image.size);
+    context = UIGraphicsGetCurrentContext();
+    
+    [baseImage.image drawInRect:CGRectMake(0, 0, baseImage.image.size.width, baseImage.image.size.height)];
+    
+    context = UIGraphicsGetCurrentContext();
+    
+    CGContextSaveGState(context);
+    context = UIGraphicsGetCurrentContext();
+    [self scaleAndRotateLogoContext:context];
+    
+    [overlayImage.image drawInRect:CGRectMake(0, 0, overlay.size.width, overlay.size.height)];
+    CGContextRestoreGState(context);
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (void) scaleAndRotateLogoContext:(CGContextRef) context {
+    //TODO: need to #define all of these constants.
+    float scale;
+    //first need to scale the logo to the porportional size of its appearance
+    UIImage *image = baseImage.image;
+    
+    scale = logoTransformInfo.scale * image.size.width/640;//640 pixels is the width of the display
+    CGPoint translationOfLogoCenterInLogoCoordinate = CGPointMake(144.0/2, 144.0/2);
+    CGPoint translationOfLogoCenterInBaseImageCoorindate = overlayImage.center;
+    
+    translationOfLogoCenterInBaseImageCoorindate.y = translationOfLogoCenterInBaseImageCoorindate.y - 65;
+    
+    CGPoint translationOfLogoCenterFromLogoZeroInBaseImageCoordinate = CGPointApplyAffineTransform(translationOfLogoCenterInLogoCoordinate, logoTransformInfo.logoTransform);
+    CGPoint translationOfLogoZeroInBaseImageCoordinate = CGPointMake(
+     (translationOfLogoCenterInBaseImageCoorindate.x - translationOfLogoCenterFromLogoZeroInBaseImageCoordinate.x),
+     (translationOfLogoCenterInBaseImageCoorindate.y - translationOfLogoCenterFromLogoZeroInBaseImageCoordinate.y));
+    
+    CGContextTranslateCTM(context, translationOfLogoZeroInBaseImageCoordinate.x * image.size.width/320, translationOfLogoZeroInBaseImageCoordinate.y * image.size.width/320);
+    CGContextScaleCTM(context, scale, scale);
+    CGContextRotateCTM(context, logoTransformInfo.rotation);
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ToShare"]) {
+        SharePhotoViewController *sharePhotoVC = [segue destinationViewController];
+        
+        
+        sharePhotoVC.photoForShare = [self generateCombinedImage];
+    }
 }
 @end

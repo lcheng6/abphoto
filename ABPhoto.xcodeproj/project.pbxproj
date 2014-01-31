@@ -33,6 +33,7 @@
 		C4F2824E189856B900A7F530 /* GridForCamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824C189856B900A7F530 /* GridForCamera@2x.png */; };
 		C4F282511898586A00A7F530 /* MaskRegionForCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */; };
 		C4F282521898586A00A7F530 /* MaskRegionForCamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F282501898586A00A7F530 /* MaskRegionForCamera@2x.png */; };
+		C4F65AE5189AA5450025EF04 /* SharePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F65AE4189AA5450025EF04 /* SharePhotoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		C4F2824C189856B900A7F530 /* GridForCamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GridForCamera@2x.png"; path = "Images/GridForCamera@2x.png"; sourceTree = "<group>"; };
 		C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MaskRegionForCamera.png; path = Images/MaskRegionForCamera.png; sourceTree = "<group>"; };
 		C4F282501898586A00A7F530 /* MaskRegionForCamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "MaskRegionForCamera@2x.png"; path = "Images/MaskRegionForCamera@2x.png"; sourceTree = "<group>"; };
+		C4F65AE3189AA5450025EF04 /* SharePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePhotoViewController.h; sourceTree = "<group>"; };
+		C4F65AE4189AA5450025EF04 /* SharePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePhotoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				C4CC8A821897CE4A001F7424 /* ViewController.m */,
 				C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */,
 				C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */,
+				C4F65AE3189AA5450025EF04 /* SharePhotoViewController.h */,
+				C4F65AE4189AA5450025EF04 /* SharePhotoViewController.m */,
 				C4CC8A841897CE4A001F7424 /* Images.xcassets */,
 				C4CC8A731897CE4A001F7424 /* Supporting Files */,
 			);
@@ -335,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */,
+				C4F65AE5189AA5450025EF04 /* SharePhotoViewController.m in Sources */,
 				C4CC8A831897CE4A001F7424 /* ViewController.m in Sources */,
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,

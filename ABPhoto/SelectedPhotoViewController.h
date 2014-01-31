@@ -22,5 +22,6 @@ typedef struct {
     __weak IBOutlet UINavigationItem *navigationBar;
 }
 - (IBAction)cameraButtonPressed:(id)sender;
+- (UIImage *)generateCombinedImage;
 
 @end
