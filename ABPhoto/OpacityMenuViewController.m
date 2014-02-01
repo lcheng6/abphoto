@@ -10,7 +10,7 @@
 
 @interface OpacityMenuViewController ()
 {
-    UITapGestureRecognizer * tapGesture;
+    UITapGestureRecognizer * tapGestureRecognizer;
     float _selectedOpacity;
 }
 @property (nonatomic, strong) NSMutableArray * opaqueIcons;
@@ -111,8 +111,12 @@
     context = UIGraphicsGetCurrentContext();
     
     //draw the corner with rounded corner
-    [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:3.0f];
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:25.0f];
+    path.lineWidth = 4.0f;
+    [[[[[UIApplication sharedApplication] delegate] window] tintColor] setStroke];
+    [path stroke];
     
+    //draw the logo image.
     CGContextScaleCTM(context, widthScale, heightScale);
     [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:_selectedOpacity];
     
@@ -122,14 +126,17 @@
     
     [opaqueIcons replaceObjectAtIndex:iconIndex withObject:iconWithRoundedSquare];
    
-
+    UIImageView * iconView  = [opaqueIconViews objectAtIndex:iconIndex];
+    iconView.image = iconWithRoundedSquare;
     
 }
 - (float) getSelectedOpacity {
     return 0.0;
 }
 
-
+- (void) translateTapToOpacityValue:(id)sender {
+    
+}
 + (CGSize) recommendedSize
 {
     CGSize size;
@@ -139,5 +146,6 @@
     
     return size;
 }
+
 
 @end
