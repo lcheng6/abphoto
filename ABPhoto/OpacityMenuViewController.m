@@ -12,6 +12,7 @@
 {
     UITapGestureRecognizer * tapGestureRecognizer;
     float _selectedOpacity;
+    UIImage * _logoImage;
 }
 @property (nonatomic, strong) NSMutableArray * opaqueIcons;
 @property (nonatomic, strong) NSMutableArray * opaqueIconViews;
@@ -26,11 +27,16 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
 }
+*/
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToOpacitySelection:)];
+    tapGestureRecognizer.numberOfTapsRequired = 1;
+    tapGestureRecognizer.numberOfTouchesRequired =1;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +44,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-*/
+
 
 - (void) setLogoImage:(UIImage*) logoImage
 {
@@ -83,14 +89,50 @@
         imageFrameRect.origin.y = 0;
         
         iconView.frame = imageFrameRect;
-        [self addSubview:iconView];
+        [self.view addSubview:iconView];
     }
     
-    _selectedOpacity = 1.0f;
-    [self drawSquareAroundSelectedOpacityIcon:logoImage];
+    _selectedOpacity = .8f;
+    _logoImage = logoImage;
+    [self drawSquareAroundSelectedOpacityIcon];
 }
 
-- (void) drawSquareAroundSelectedOpacityIcon:(UIImage*) logoImage {
+- (void) deSelectOpacityIcon{
+    int iconIndex = 5 - (_selectedOpacity / .2f);
+    UIImage * iconWithoutRoundedSquare = nil;
+    CGSize iconSize;
+    CGRect logoRect;
+    
+    iconSize.width = 65*2;
+    iconSize.height = 65*2;
+    
+    logoRect.size = iconSize;
+    logoRect.origin = CGPointMake(0.0f, 0.0f);
+    
+    float widthScale = iconSize.width / _logoImage.size.width;
+    float heightScale = iconSize.height / _logoImage.size.height;
+    
+    UIGraphicsBeginImageContext(iconSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    context = UIGraphicsGetCurrentContext();
+    
+    
+    //draw the logo image.
+    CGContextScaleCTM(context, widthScale, heightScale);
+    [_logoImage drawInRect:CGRectMake(0, 0, _logoImage.size.width, _logoImage.size.height) blendMode:kCGBlendModeNormal alpha:_selectedOpacity];
+    
+    iconWithoutRoundedSquare = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    [opaqueIcons replaceObjectAtIndex:iconIndex withObject:iconWithoutRoundedSquare];
+    
+    UIImageView * iconView  = [opaqueIconViews objectAtIndex:iconIndex];
+    iconView.image = iconWithoutRoundedSquare;
+}
+
+- (void) drawSquareAroundSelectedOpacityIcon {
     int iconIndex = 5 - (_selectedOpacity / .2f);
     UIImage * iconWithRoundedSquare = nil;
     CGSize iconSize;
@@ -102,8 +144,8 @@
     logoRect.size = iconSize;
     logoRect.origin = CGPointMake(0.0f, 0.0f);
     
-    float widthScale = iconSize.width / logoImage.size.width;
-    float heightScale = iconSize.height / logoImage.size.height;
+    float widthScale = iconSize.width / _logoImage.size.width;
+    float heightScale = iconSize.height / _logoImage.size.height;
     
     UIGraphicsBeginImageContext(iconSize);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -118,7 +160,7 @@
     
     //draw the logo image.
     CGContextScaleCTM(context, widthScale, heightScale);
-    [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:_selectedOpacity];
+    [_logoImage drawInRect:CGRectMake(0, 0, _logoImage.size.width, _logoImage.size.height) blendMode:kCGBlendModeNormal alpha:_selectedOpacity];
     
     iconWithRoundedSquare = UIGraphicsGetImageFromCurrentImageContext();
     
@@ -131,11 +173,31 @@
     
 }
 - (float) getSelectedOpacity {
-    return 0.0;
+    return _selectedOpacity;
 }
 
-- (void) translateTapToOpacityValue:(id)sender {
+- (void) respondToOpacitySelection:(UITapGestureRecognizer*)tap {
+    //the layout of the icons in the x direction: 10 pts border 65 pts of image 10pts border 65 pts of image...
     
+    CGPoint tapPoint = [tap locationInView:self.view];
+    if(tapPoint.y>65) {
+        //This is outside of the touch area of the icons in the layout, do nothing.
+        return;
+    }
+    
+    int regionIndex = (int)tapPoint.x / (65+10);
+    int regionOffset = (int)tapPoint.x % (int)(65 + 10);
+    if (regionIndex > 5) {
+        return;
+    }else {
+        if(regionOffset <10) {
+            return;
+        }else {
+            [self deSelectOpacityIcon];
+            _selectedOpacity = 1.0f - (float)regionIndex * .2f;
+            [self drawSquareAroundSelectedOpacityIcon];
+        }
+    }
 }
 + (CGSize) recommendedSize
 {

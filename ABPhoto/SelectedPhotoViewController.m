@@ -98,12 +98,13 @@
     opacityMenuFrame.size = [OpacityMenuViewController recommendedSize];
     opacityMenuFrame.origin.x = 0;
     opacityMenuFrame.origin.y = 0;
-    opacityMenuController = [[OpacityMenuViewController alloc] initWithFrame:opacityMenuFrame];
+    opacityMenuController = [[OpacityMenuViewController alloc] init];
+    opacityMenuController.view.frame = opacityMenuFrame;
     if (logoImage == nil) {
         logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
     }
     [opacityMenuController setLogoImage:logoImage];
-    [scrollMenuView addSubview:opacityMenuController];
+    [scrollMenuView addSubview:opacityMenuController.view];
     [scrollMenuView setScrollEnabled:YES];
     //[scrollMenuView setPagingEnabled:YES];
     [scrollMenuView setContentSize:opacityMenuFrame.size];

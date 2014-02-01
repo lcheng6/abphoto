@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OpacityMenuViewController : UIView
+@interface OpacityMenuViewController : UIViewController
 {
     
 }
