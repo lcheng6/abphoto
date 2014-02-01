@@ -13,6 +13,7 @@
     UITapGestureRecognizer * tapGestureRecognizer;
     float _selectedOpacity;
     UIImage * _logoImage;
+    UILabel * _title;
 }
 @property (nonatomic, strong) NSMutableArray * opaqueIcons;
 @property (nonatomic, strong) NSMutableArray * opaqueIconViews;
@@ -92,9 +93,20 @@
         [self.view addSubview:iconView];
     }
     
-    _selectedOpacity = .8f;
+    _selectedOpacity = 1.0f;
     _logoImage = logoImage;
     [self drawSquareAroundSelectedOpacityIcon];
+    
+    CGRect titleRect;
+    titleRect.origin.x = 0; titleRect.origin.y = 66;
+    titleRect.size.width = [OpacityMenuViewController recommendedSize].width;
+    titleRect.size.height = 15;
+    _title = [[UILabel alloc] initWithFrame:titleRect];
+    _title.text = @"Opacity";
+    _title.textColor = [UIColor whiteColor];
+    _title.textAlignment = NSTextAlignmentCenter;
+    _title.font = [UIFont systemFontOfSize:14.0f];
+    [self.view addSubview:_title];
 }
 
 - (void) deSelectOpacityIcon{
@@ -196,13 +208,14 @@
             [self deSelectOpacityIcon];
             _selectedOpacity = 1.0f - (float)regionIndex * .2f;
             [self drawSquareAroundSelectedOpacityIcon];
+            [self.delegate modifyOverlayOpacityParameter:_selectedOpacity];
         }
     }
 }
 + (CGSize) recommendedSize
 {
     CGSize size;
-    size.height = 65;
+    size.height = 80;
     //5 images and 6 gaps of 10 units between each
     size.width = 65 * 5 + 10 * 5;
     

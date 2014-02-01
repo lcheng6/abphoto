@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "UIScrollView+MenuManagement.h"
 
+@protocol OverlayParameterModificationDelegate <NSObject>
+@required
+-(void) modifyOverlayImageIndexParameter:(int)overlaySelectionIndex;
+-(void) modifyOverlayColorParameter:(CGColorRef) color;
+-(void) modifyOverlayOpacityParameter:(float) alpha;
+-(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam;
+
+@end
+
 typedef struct {
     float scale;
     CGPoint translation;
@@ -16,7 +25,14 @@ typedef struct {
     CGAffineTransform logoTransform;
 } LogoTransform;
 
-@interface SelectedPhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+typedef struct {
+    int overlaySelectionIndex;
+    CGColorRef color;
+    float alpha;
+    CGPoint dropShadowParam;
+} OverlayParameter;
+
+@interface SelectedPhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, OverlayParameterModificationDelegate>
 {
     __weak IBOutlet UIImageView *baseImage;
     __weak IBOutlet UIImageView *overlayImage;

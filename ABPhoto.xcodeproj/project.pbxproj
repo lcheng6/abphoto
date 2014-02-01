@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */; };
+		C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */; };
 		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
@@ -49,6 +50,8 @@
 /* Begin PBXFileReference section */
 		C460310A189CEF3C0057F529 /* UIScrollView+MenuManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MenuManagement.h"; sourceTree = "<group>"; };
 		C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MenuManagement.m"; sourceTree = "<group>"; };
+		C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlaySelectionMenuViewController.h; sourceTree = "<group>"; };
+		C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlaySelectionMenuViewController.m; sourceTree = "<group>"; };
 		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
 		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +203,8 @@
 			children = (
 				C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */,
 				C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */,
+				C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */,
+				C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */,
 			);
 			name = MenuViewControllers;
 			sourceTree = "<group>";
@@ -347,6 +352,7 @@
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,
 				C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */,
 				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
+				C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */,
 				C4CC8A791897CE4A001F7424 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

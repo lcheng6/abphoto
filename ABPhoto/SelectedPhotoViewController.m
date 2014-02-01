@@ -23,6 +23,8 @@
     LogoTransform logoTransformInfo;
     LogoTransform localTransformInfo;
     
+    OverlayParameter overlayParameter;
+    
     UIPanGestureRecognizer * panRecog;
     UIPinchGestureRecognizer * pinchRecog;
     UIRotationGestureRecognizer * rotateRecog;
@@ -99,6 +101,7 @@
     opacityMenuFrame.origin.x = 0;
     opacityMenuFrame.origin.y = 0;
     opacityMenuController = [[OpacityMenuViewController alloc] init];
+    opacityMenuController.delegate = self;
     opacityMenuController.view.frame = opacityMenuFrame;
     if (logoImage == nil) {
         logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
@@ -412,7 +415,7 @@
     context = UIGraphicsGetCurrentContext();
     [self scaleAndRotateLogoContext:context];
     
-    [overlay drawInRect:CGRectMake(0, 0, overlay.size.width, overlay.size.height)];
+    [overlay drawInRect:CGRectMake(0, 0, overlay.size.width, overlay.size.height) blendMode:kCGBlendModeNormal alpha:overlayParameter.alpha];
     CGContextRestoreGState(context);
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -447,8 +450,29 @@
     if ([[segue identifier] isEqualToString:@"ToShare"]) {
         SharePhotoViewController *sharePhotoVC = [segue destinationViewController];
         
-        
         sharePhotoVC.photoForShare = [self generateCombinedImage];
     }
 }
+
+- (void) overlayParamChanged {
+    overlayImage.alpha = overlayParameter.alpha;
+}
+
+-(void) modifyOverlayImageIndexParameter:(int)overlaySelectionIndex
+{
+}
+-(void) modifyOverlayColorParameter:(CGColorRef) color
+{
+    
+}
+-(void) modifyOverlayOpacityParameter:(float) alpha
+{
+    overlayParameter.alpha = alpha;
+    [self overlayParamChanged];
+}
+-(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam
+{
+    
+}
+
 @end
