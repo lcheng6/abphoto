@@ -14,6 +14,7 @@
 }
 
 -(void) setLogoImage:(UIImage *) logoImage;
+-(float) getSelectedOpacity;
 +(CGSize) recommendedSize;
 
 @end

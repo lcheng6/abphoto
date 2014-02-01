@@ -9,14 +9,18 @@
 #import "OpacityMenuViewController.h"
 
 @interface OpacityMenuViewController ()
+{
+    UITapGestureRecognizer * tapGesture;
+    float _selectedOpacity;
+}
 @property (nonatomic, strong) NSMutableArray * opaqueIcons;
 @property (nonatomic, strong) NSMutableArray * opaqueIconViews;
-
 @end
 
 @implementation OpacityMenuViewController
 @synthesize opaqueIcons;
 @synthesize opaqueIconViews;
+
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -45,9 +49,6 @@
     
     float widthScale = iconSize.width / logoImage.size.width;
     float heightScale = iconSize.height / logoImage.size.height;
-    CGRect logRect;
-    logRect.origin = CGPointMake(0, 0);
-    logRect.size = iconSize;
     
     for (float alpha=1; alpha > 0; alpha -=.2) {
         UIGraphicsBeginImageContext(iconSize);
@@ -84,8 +85,49 @@
         iconView.frame = imageFrameRect;
         [self addSubview:iconView];
     }
+    
+    _selectedOpacity = 1.0f;
+    [self drawSquareAroundSelectedOpacityIcon:logoImage];
 }
 
+- (void) drawSquareAroundSelectedOpacityIcon:(UIImage*) logoImage {
+    int iconIndex = 5 - (_selectedOpacity / .2f);
+    UIImage * iconWithRoundedSquare = nil;
+    CGSize iconSize;
+    CGRect logoRect;
+    
+    iconSize.width = 65*2;
+    iconSize.height = 65*2;
+    
+    logoRect.size = iconSize;
+    logoRect.origin = CGPointMake(0.0f, 0.0f);
+    
+    float widthScale = iconSize.width / logoImage.size.width;
+    float heightScale = iconSize.height / logoImage.size.height;
+    
+    UIGraphicsBeginImageContext(iconSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    context = UIGraphicsGetCurrentContext();
+    
+    //draw the corner with rounded corner
+    [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:3.0f];
+    
+    CGContextScaleCTM(context, widthScale, heightScale);
+    [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:_selectedOpacity];
+    
+    iconWithRoundedSquare = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    [opaqueIcons replaceObjectAtIndex:iconIndex withObject:iconWithRoundedSquare];
+   
+
+    
+}
+- (float) getSelectedOpacity {
+    return 0.0;
+}
 
 
 + (CGSize) recommendedSize

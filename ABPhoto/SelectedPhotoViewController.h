@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIScrollView+MenuManagement.h"
 
 typedef struct {
     float scale;
@@ -20,6 +21,7 @@ typedef struct {
     __weak IBOutlet UIImageView *baseImage;
     __weak IBOutlet UIImageView *overlayImage;
     __weak IBOutlet UIScrollView *scrollMenuView;
+    __weak IBOutlet UIPageControl *pageControl;
     
 }
 - (IBAction)cameraButtonPressed:(id)sender;

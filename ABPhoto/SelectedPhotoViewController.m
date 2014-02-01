@@ -30,7 +30,6 @@
     NSMutableSet * _activeRecognizers;
     
     OpacityMenuViewController * opacityMenuController;
-    
 }
 
 @end
@@ -90,6 +89,7 @@
     _activeRecognizers = [NSMutableSet set];
     
     [self setupMenusInScrollView];
+    
 }
 
 - (void) setupMenusInScrollView

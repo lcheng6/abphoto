@@ -33,14 +33,18 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="427"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0Ls-Z8-Cvk" userLabel="Overlay">
+                            <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="GridForCamera.png" id="0Ls-Z8-Cvk" userLabel="Overlay">
                                 <rect key="frame" x="88" y="162" width="144" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="9KK-uM-WH3">
-                                <rect key="frame" x="0.0" y="447" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="443" width="320" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" id="dTN-0I-a2f">
+                                <rect key="frame" x="118" y="520" width="85" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
@@ -59,6 +63,7 @@
                     <connections>
                         <outlet property="baseImage" destination="2cl-Ss-7Wd" id="uCn-6f-uLe"/>
                         <outlet property="overlayImage" destination="0Ls-Z8-Cvk" id="KKq-N8-6tt"/>
+                        <outlet property="pageControl" destination="dTN-0I-a2f" id="hRZ-Y6-Lel"/>
                         <outlet property="scrollMenuView" destination="9KK-uM-WH3" id="pl3-Q4-4Z1"/>
                     </connections>
                 </viewController>
@@ -91,6 +96,9 @@
             <point key="canvasLocation" x="808" y="111"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GridForCamera.png" width="320" height="320"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

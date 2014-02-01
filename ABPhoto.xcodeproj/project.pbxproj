@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */; };
 		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
@@ -28,8 +29,6 @@
 		C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AAB1897CF1F001F7424 /* AmericanBoxingLogo@2x.png */; };
 		C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */; };
 		C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */; };
-		C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */; };
-		C4CC8ABC1897E96F001F7424 /* RightMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */; };
 		C4F2824D189856B900A7F530 /* GridForCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824B189856B900A7F530 /* GridForCamera.png */; };
 		C4F2824E189856B900A7F530 /* GridForCamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824C189856B900A7F530 /* GridForCamera@2x.png */; };
 		C4F282511898586A00A7F530 /* MaskRegionForCamera.png in Resources */ = {isa = PBXBuildFile; fileRef = C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */; };
@@ -48,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C460310A189CEF3C0057F529 /* UIScrollView+MenuManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MenuManagement.h"; sourceTree = "<group>"; };
+		C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MenuManagement.m"; sourceTree = "<group>"; };
 		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
 		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,9 +78,6 @@
 		C4CC8AAC1897CF1F001F7424 /* AmericanBoxingOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AmericanBoxingOverlay.png; path = Images/AmericanBoxingOverlay.png; sourceTree = "<group>"; };
 		C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedPhotoViewController.h; sourceTree = "<group>"; };
 		C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedPhotoViewController.m; sourceTree = "<group>"; };
-		C4CC8AB81897E96F001F7424 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenuViewController.h; sourceTree = "<group>"; };
-		C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
-		C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightMenuViewController.xib; sourceTree = "<group>"; };
 		C4CC8ABD1897ED40001F7424 /* CameraParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraParameter.h; sourceTree = "<group>"; };
 		C4F2824B189856B900A7F530 /* GridForCamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GridForCamera.png; path = Images/GridForCamera.png; sourceTree = "<group>"; };
 		C4F2824C189856B900A7F530 /* GridForCamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GridForCamera@2x.png"; path = "Images/GridForCamera@2x.png"; sourceTree = "<group>"; };
@@ -153,10 +151,10 @@
 				C4CC8A7B1897CE4A001F7424 /* AppDelegate.h */,
 				C4CC8A7C1897CE4A001F7424 /* AppDelegate.m */,
 				C4CC8A7E1897CE4A001F7424 /* Main.storyboard */,
-				C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */,
-				C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */,
 				C4CC8A811897CE4A001F7424 /* ViewController.h */,
 				C4CC8A821897CE4A001F7424 /* ViewController.m */,
+				C460310A189CEF3C0057F529 /* UIScrollView+MenuManagement.h */,
+				C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */,
 				C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */,
 				C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */,
 				C4F65AE3189AA5450025EF04 /* SharePhotoViewController.h */,
@@ -200,9 +198,8 @@
 		C4CC8AA31897CE5A001F7424 /* MenuViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC8AB81897E96F001F7424 /* RightMenuViewController.h */,
-				C4CC8AB91897E96F001F7424 /* RightMenuViewController.m */,
-				C4CC8ABA1897E96F001F7424 /* RightMenuViewController.xib */,
+				C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */,
+				C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */,
 			);
 			name = MenuViewControllers;
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 				C4CC8A771897CE4A001F7424 /* InfoPlist.strings in Resources */,
 				C4F282521898586A00A7F530 /* MaskRegionForCamera@2x.png in Resources */,
 				C4F2824E189856B900A7F530 /* GridForCamera@2x.png in Resources */,
-				C4CC8ABC1897E96F001F7424 /* RightMenuViewController.xib in Resources */,
 				C4CC8AA91897CE96001F7424 /* CameraOverlayViewController.xib in Resources */,
 				C4CC8A801897CE4A001F7424 /* Main.storyboard in Resources */,
 				C4F282511898586A00A7F530 /* MaskRegionForCamera.png in Resources */,
@@ -344,12 +340,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CC8ABB1897E96F001F7424 /* RightMenuViewController.m in Sources */,
 				C4F65AE5189AA5450025EF04 /* SharePhotoViewController.m in Sources */,
 				C4CC8A831897CE4A001F7424 /* ViewController.m in Sources */,
 				C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */,
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,
+				C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */,
 				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
 				C4CC8A791897CE4A001F7424 /* main.m in Sources */,
 			);
