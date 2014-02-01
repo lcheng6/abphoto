@@ -19,7 +19,8 @@ typedef struct {
 {
     __weak IBOutlet UIImageView *baseImage;
     __weak IBOutlet UIImageView *overlayImage;
-    __weak IBOutlet UINavigationItem *navigationBar;
+    __weak IBOutlet UIScrollView *scrollMenuView;
+    
 }
 - (IBAction)cameraButtonPressed:(id)sender;
 - (UIImage *)generateCombinedImage;

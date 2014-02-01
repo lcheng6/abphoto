@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OpacityMenuViewController : UIViewController
+@interface OpacityMenuViewController : UIView
+{
+    
+}
+
+-(void) setLogoImage:(UIImage *) logoImage;
++(CGSize) recommendedSize;
 
 @end

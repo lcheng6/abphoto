@@ -10,6 +10,7 @@
 #import "CameraOverlayViewController.h"
 #import "CameraParameter.h"
 #import "SharePhotoViewController.h"
+#import "OpacityMenuViewController.h"
 
 
 @interface SelectedPhotoViewController ()
@@ -28,6 +29,7 @@
     
     NSMutableSet * _activeRecognizers;
     
+    OpacityMenuViewController * opacityMenuController;
     
 }
 
@@ -86,6 +88,26 @@
     
     
     _activeRecognizers = [NSMutableSet set];
+    
+    [self setupMenusInScrollView];
+}
+
+- (void) setupMenusInScrollView
+{
+    CGRect opacityMenuFrame;
+    opacityMenuFrame.size = [OpacityMenuViewController recommendedSize];
+    opacityMenuFrame.origin.x = 0;
+    opacityMenuFrame.origin.y = 0;
+    opacityMenuController = [[OpacityMenuViewController alloc] initWithFrame:opacityMenuFrame];
+    if (logoImage == nil) {
+        logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
+    }
+    [opacityMenuController setLogoImage:logoImage];
+    [scrollMenuView addSubview:opacityMenuController];
+    [scrollMenuView setScrollEnabled:YES];
+    //[scrollMenuView setPagingEnabled:YES];
+    [scrollMenuView setContentSize:opacityMenuFrame.size];
+    
 
 }
 - (void)respondToPan:(UIPanGestureRecognizer *) recognizer {
@@ -389,7 +411,7 @@
     context = UIGraphicsGetCurrentContext();
     [self scaleAndRotateLogoContext:context];
     
-    [overlayImage.image drawInRect:CGRectMake(0, 0, overlay.size.width, overlay.size.height)];
+    [overlay drawInRect:CGRectMake(0, 0, overlay.size.width, overlay.size.height)];
     CGContextRestoreGState(context);
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -407,7 +429,7 @@
     CGPoint translationOfLogoCenterInLogoCoordinate = CGPointMake(144.0/2, 144.0/2);
     CGPoint translationOfLogoCenterInBaseImageCoorindate = overlayImage.center;
     
-    translationOfLogoCenterInBaseImageCoorindate.y = translationOfLogoCenterInBaseImageCoorindate.y - 65;
+    translationOfLogoCenterInBaseImageCoorindate.y = translationOfLogoCenterInBaseImageCoorindate.y - baseImage.frame.origin.y;
     
     CGPoint translationOfLogoCenterFromLogoZeroInBaseImageCoordinate = CGPointApplyAffineTransform(translationOfLogoCenterInLogoCoordinate, logoTransformInfo.logoTransform);
     CGPoint translationOfLogoZeroInBaseImageCoordinate = CGPointMake(
