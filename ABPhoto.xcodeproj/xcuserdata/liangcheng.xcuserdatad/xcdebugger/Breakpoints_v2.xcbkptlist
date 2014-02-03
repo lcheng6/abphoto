@@ -105,14 +105,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABPhoto/OpacityMenuViewController.m"
-            timestampString = "412956978.991917"
+            filePath = "ABPhoto/CameraOverlayViewController.m"
+            timestampString = "413142846.27774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
-            landmarkName = "-respondToOpacitySelection:"
-            landmarkType = "5">
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "@implementation CameraOverlayViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,29 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/CameraOverlayViewController.m"
-            timestampString = "413142475.90447"
+            timestampString = "413142846.27774"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "-loadLastPhotoTaken"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ABPhoto/CameraOverlayViewController.m"
-            timestampString = "413142539.718947"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-loadLastPhotoTaken"
-            landmarkType = "5">
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "@implementation CameraOverlayViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
