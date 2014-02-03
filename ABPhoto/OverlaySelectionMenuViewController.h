@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectedPhotoViewController.h"
 
 @interface OverlaySelectionMenuViewController : UIViewController
+{
+    
+}
+
+- (CGPoint) getShadowParameter;
+- (void)setLogoImage:(UIImage*) logoImage;
+@property (nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
++ (CGSize) recommendedSize;
 
 @end

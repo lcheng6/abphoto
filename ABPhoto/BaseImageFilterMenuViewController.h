@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectedPhotoViewController.h"
 
 @interface BaseImageFilterMenuViewController : UIViewController
+{
+}
+
+
+@property (nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
+- (int) getSelectedImageIndex;
+- (void) setBaseImage:(UIImage*) baseImage;
++(CGSize) recommendedSize;
 
 @end
+
+
