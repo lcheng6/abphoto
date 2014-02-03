@@ -10,12 +10,18 @@
 
 @interface BaseImageFilterMenuViewController ()
 {
+    UITapGestureRecognizer * tapGestureRecognizer;
     int _selectedImageIndex;
     UIImage * _baseImage;
+    UILabel * _title;
 }
+@property (nonatomic, strong) NSMutableArray * baseImageIcons;
+@property (nonatomic, strong) NSMutableArray * baseImageIconViews;
 @end
 
 @implementation BaseImageFilterMenuViewController
+@synthesize baseImageIcons;
+@synthesize baseImageIconViews;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +36,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToBaseFilterImageSelection:)];
+    tapGestureRecognizer.numberOfTapsRequired = 1;
+    tapGestureRecognizer.numberOfTouchesRequired =1;
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,9 +77,74 @@
 - (void) setBaseImage:(UIImage*) baseImage
 {
     _baseImage = baseImage;
+    CGSize iconSize;
+    iconSize.width = 65 * 2;
+    iconSize.height = 65 * 2;
+    
+    float widthScale = iconSize.width/_baseImage.size.width;
+    float heightScale = widthScale;//iconSize.height/baseImage.size.height;
+    
+    //Make 6 small icons for the images.
+    baseImageIcons = [NSMutableArray array];
+    for (int i=0; i<6; i++) {
+        UIGraphicsBeginImageContext(iconSize);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        UIImage * newIcon = nil;
+        
+        CGContextScaleCTM(context, widthScale, heightScale);
+        
+        CGRect centerSquareRect;
+        centerSquareRect.size.height = baseImage.size.height;
+        centerSquareRect.size.width = baseImage.size.width;
+        centerSquareRect.origin.x = 0;
+        centerSquareRect.origin.y = -1*(baseImage.size.height - baseImage.size.width)/2;
+        [baseImage drawInRect:centerSquareRect];
+        
+        newIcon = UIGraphicsGetImageFromCurrentImageContext();
+        [baseImageIcons addObject:newIcon];
+        UIGraphicsEndImageContext();
+    }
+    
+    baseImageIconViews = [NSMutableArray array];
+    for (int index = 0; index < [baseImageIcons count]; index ++) {
+        UIImage * icon = [baseImageIcons objectAtIndex:index];
+        UIImageView * iconView = [[UIImageView alloc] initWithImage:icon];
+        [baseImageIconViews addObject:iconView];
+    }
+    
+    CGRect imageFrameRect;
+    imageFrameRect.size.width = 65;
+    imageFrameRect.size.height = 65;
+    for (int index = 0; index < [baseImageIconViews count]; index++) {
+        UIImageView * iconView = [baseImageIconViews objectAtIndex:index];
+        imageFrameRect.origin.x = 10 * (index+1) + 65 * index;
+        imageFrameRect.origin.y = 0;
+        
+        iconView.frame = imageFrameRect;
+        //iconView.contentMode = UIViewContentModeCenter;
+        [self.view addSubview:iconView];
+    }
+    
+    _selectedImageIndex = 0;
+    
+    CGRect titleRect;
+    titleRect.origin.x = 0; titleRect.origin.y = 66;
+    titleRect.size.width = [BaseImageFilterMenuViewController recommendedSize].width;
+    titleRect.size.height = 15;
+    _title = [[UILabel alloc] initWithFrame:titleRect];
+    _title.text = @"Filter";
+    _title.textColor = [UIColor whiteColor];
+    _title.textAlignment = NSTextAlignmentCenter;
+    _title.font = [UIFont systemFontOfSize:14.0f];
+    [self.view addSubview:_title];
 }
 - (int) getSelectedImageIndex {
     return _selectedImageIndex;
+}
+
+- (void)respondToBaseFilterImageSelection:(UITapGestureRecognizer *) tapRecog
+{
+    
 }
 
 + (CGSize) recommendedSize
@@ -81,5 +156,6 @@
     
     return size;
 }
+
 
 @end

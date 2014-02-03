@@ -61,7 +61,7 @@
         UIGraphicsBeginImageContext(iconSize);
         CGContextRef context = UIGraphicsGetCurrentContext();
         UIImage * newIcon= nil;
-        context = UIGraphicsGetCurrentContext();
+        //context = UIGraphicsGetCurrentContext();
         //CGContextSetBlendMode(context, kCGBlendModeLuminosity);
         //CGcontextDrawImage(context, rect, newIcon.CGImage)
         //CGContextSetFillColorWithColor(context, (__bridge CGColorRef)([UIColor blackColor]));

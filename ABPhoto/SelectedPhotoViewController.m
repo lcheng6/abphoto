@@ -10,6 +10,7 @@
 #import "CameraOverlayViewController.h"
 #import "CameraParameter.h"
 #import "SharePhotoViewController.h"
+#import "BaseImageFilterMenuViewController.h"
 #import "OpacityMenuViewController.h"
 
 
@@ -31,6 +32,7 @@
     
     NSMutableSet * _activeRecognizers;
     
+    BaseImageFilterMenuViewController * baseImageFilterMenuController;
     OpacityMenuViewController * opacityMenuController;
 }
 
@@ -96,21 +98,39 @@
 
 - (void) setupMenusInScrollView
 {
+    int xOffset = 0;
+    CGRect baseImageFilterFrame;
+    
+    baseImageFilterFrame.size = [BaseImageFilterMenuViewController recommendedSize];
+    baseImageFilterFrame.origin.x = 0;
+    baseImageFilterFrame.origin.y = 0;
+    baseImageFilterMenuController = [[BaseImageFilterMenuViewController alloc] init];
+    baseImageFilterMenuController.delegate = self;
+    baseImageFilterMenuController.view.frame = baseImageFilterFrame;
+    xOffset += baseImageFilterFrame.size.width;
+    
     CGRect opacityMenuFrame;
     opacityMenuFrame.size = [OpacityMenuViewController recommendedSize];
-    opacityMenuFrame.origin.x = 0;
+    opacityMenuFrame.origin.x = xOffset;
     opacityMenuFrame.origin.y = 0;
     opacityMenuController = [[OpacityMenuViewController alloc] init];
     opacityMenuController.delegate = self;
     opacityMenuController.view.frame = opacityMenuFrame;
+    xOffset += opacityMenuFrame.size.width;
+    
     if (logoImage == nil) {
         logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
     }
     [opacityMenuController setLogoImage:logoImage];
+    [scrollMenuView addSubview:baseImageFilterMenuController.view];
     [scrollMenuView addSubview:opacityMenuController.view];
     [scrollMenuView setScrollEnabled:YES];
     //[scrollMenuView setPagingEnabled:YES];
-    [scrollMenuView setContentSize:opacityMenuFrame.size];
+    
+    CGSize totalSize;
+    totalSize.height = baseImageFilterFrame.size.height;
+    totalSize.width = baseImageFilterFrame.size.width + opacityMenuFrame.size.width;
+    [scrollMenuView setContentSize:totalSize];
     
 
 }
@@ -193,7 +213,6 @@
     }
     
     
-    
     NSLog(@"scale %f rotation %f translation (%f, %f)", localTransformInfo.scale, localTransformInfo.rotation, localTransformInfo.translation.x, localTransformInfo.translation.y);
     
     
@@ -259,6 +278,8 @@
     
     logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
     overlayImage.image = [self fixOverlayImageOrientation:logoImage orientation:baseImageOriginalOrientation];
+    
+    [baseImageFilterMenuController setBaseImage:correctedImage];
     
 }
 
