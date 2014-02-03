@@ -17,7 +17,7 @@
     __weak IBOutlet UIButton *cameraSelectionButton;
     __weak IBOutlet UIButton *flashSelectionButton;
     __weak IBOutlet UIImageView *gridImageView;
-
+    __weak IBOutlet UIImageView *lastPhotoTakenImageView;
     
 }
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */; };
 		C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */; };
+		C48A408D18A00D6000F69609 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48A408C18A00D6000F69609 /* AssetsLibrary.framework */; };
 		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
@@ -52,6 +53,7 @@
 		C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MenuManagement.m"; sourceTree = "<group>"; };
 		C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlaySelectionMenuViewController.h; sourceTree = "<group>"; };
 		C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlaySelectionMenuViewController.m; sourceTree = "<group>"; };
+		C48A408C18A00D6000F69609 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
 		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48A408D18A00D6000F69609 /* AssetsLibrary.framework in Frameworks */,
 				C4CC8AA21897CE55001F7424 /* QuartzCore.framework in Frameworks */,
 				C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */,
 				C4CC8A711897CE4A001F7424 /* UIKit.framework in Frameworks */,
@@ -137,6 +140,7 @@
 		C4CC8A6B1897CE4A001F7424 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C48A408C18A00D6000F69609 /* AssetsLibrary.framework */,
 				C4CC8AA11897CE55001F7424 /* QuartzCore.framework */,
 				C4CC8A6C1897CE4A001F7424 /* Foundation.framework */,
 				C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */,

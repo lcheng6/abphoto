@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Liang Cheng. All rights reserved.
 //
 
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "CameraOverlayViewController.h"
 
 @interface CameraOverlayViewController ()
@@ -45,7 +46,7 @@
     if(cameraParams.flashParam == kFlashNotAvailable) {
         [flashSelectionButton setEnabled:NO];
     }
-    
+    //[self loadLastPhotoTaken];
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,5 +148,33 @@
     
 }
 
+/*
+- (void) loadLastPhotoTaken {
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    
+    // Enumerate just the photos and videos group by using ALAssetsGroupSavedPhotos.
+    [library enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        
+        // Within the group enumeration block, filter to enumerate just photos.
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        
+        // Chooses the photo at the last index
+        [group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
+            
+            // The end of the enumeration is signaled by asset == nil.
+            if (alAsset) {
+                ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+                UIImage *latestPhoto = [UIImage imageWithCGImage:[representation fullScreenImage]];
+                
+                lastPhotoTakenImageView.image = latestPhoto;
+                
+            }
+        }];
+    } failureBlock: ^(NSError *error) {
+        // Typically you should handle an error more gracefully than this.
+        NSLog(@"No groups");
+    }];
+}
+ */
 
 @end

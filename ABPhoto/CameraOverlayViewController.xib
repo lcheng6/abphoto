@@ -11,6 +11,7 @@
                 <outlet property="flashSelectionButton" destination="hVP-YT-Rf5" id="raJ-f9-0WG"/>
                 <outlet property="gridButton" destination="sV4-ES-KGB" id="iT0-XJ-gqp"/>
                 <outlet property="gridImageView" destination="NzU-sv-SBV" id="XWR-p1-qaC"/>
+                <outlet property="lastPhotoTakenImageView" destination="HcC-oO-ao3" id="RjT-5J-Wpi"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -68,6 +69,10 @@
                 </button>
                 <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="GridForCamera.png" translatesAutoresizingMaskIntoConstraints="NO" id="NzU-sv-SBV" userLabel="gridImageView">
                     <rect key="frame" x="0.0" y="53" width="320" height="320"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcC-oO-ao3" userLabel="lastPhotoTakenImageView">
+                    <rect key="frame" x="44" y="454" width="45" height="45"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
