@@ -165,10 +165,15 @@
     context = UIGraphicsGetCurrentContext();
     
     //draw the corner with rounded corner
-    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:25.0f];
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:2.0f];
     path.lineWidth = 4.0f;
     [[[[[UIApplication sharedApplication] delegate] window] tintColor] setStroke];
+    //[[[[[[UIApplication sharedApplication] delegate] window] tintColor] colorWithAlphaComponent:.2f] setFill];
+    //CGPathDrawingMode mode = kCGPathFillStroke;
     [path stroke];
+    //[path fill];
+    //CGContextClosePath(context);
+    //CGContextDrawPath(context, mode);
     
     //draw the logo image.
     CGContextScaleCTM(context, widthScale, heightScale);

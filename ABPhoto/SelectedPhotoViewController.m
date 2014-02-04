@@ -125,6 +125,7 @@
     [scrollMenuView addSubview:baseImageFilterMenuController.view];
     [scrollMenuView addSubview:opacityMenuController.view];
     [scrollMenuView setScrollEnabled:YES];
+    [scrollMenuView setShowsHorizontalScrollIndicator:NO];
     //[scrollMenuView setPagingEnabled:YES];
     
     CGSize totalSize;

@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413154339.093091"
+            timestampString = "413164307.382827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-respondToPinchRotateAndPan:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413154339.093091"
+            timestampString = "413164307.382827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "457"
-            endingLineNumber = "457"
+            startingLineNumber = "458"
+            endingLineNumber = "458"
             landmarkName = "-scaleAndRotateLogoContext:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/BaseImageFilterMenuViewController.m"
-            timestampString = "413155425.025395"
+            timestampString = "413189399.565451"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-setBaseImage:"
             landmarkType = "5">
          </BreakpointContent>

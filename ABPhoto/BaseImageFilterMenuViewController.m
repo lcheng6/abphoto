@@ -78,17 +78,37 @@
 {
     _baseImage = baseImage;
     CGSize iconSize;
+    CGSize punchOutSize;
+    CGRect punchOutRect;
+    CGContextRef context;
+    
+    punchOutSize.width = 65*2;
+    punchOutSize.height = 65*2;
+    
     iconSize.width = 65 * 2;
     iconSize.height = 65 * 2;
     
     float widthScale = iconSize.width/_baseImage.size.width;
     float heightScale = widthScale;//iconSize.height/baseImage.size.height;
     
+    //Make a punchout for the the 6 images
+    punchOutRect.size = CGSizeMake(61*2, 61*2);
+    punchOutRect.origin = CGPointMake(4, 4);
+    UIBezierPath* punchOutPath = [UIBezierPath bezierPathWithRoundedRect:punchOutRect cornerRadius:10.0f];
+    UIImage * punchOut = nil;
+    UIGraphicsBeginImageContext(punchOutSize);
+    [[UIColor whiteColor] setFill];
+    context = UIGraphicsGetCurrentContext();
+    //CGContextFillRect(context, CGRectMake(0, 0, 65*2, 65*2));
+    [punchOutPath fill];
+    punchOut = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     //Make 6 small icons for the images.
     baseImageIcons = [NSMutableArray array];
     for (int i=0; i<6; i++) {
         UIGraphicsBeginImageContext(iconSize);
-        CGContextRef context = UIGraphicsGetCurrentContext();
+        context = UIGraphicsGetCurrentContext();
         UIImage * newIcon = nil;
         
         CGContextScaleCTM(context, widthScale, heightScale);
@@ -101,8 +121,18 @@
         [baseImage drawInRect:centerSquareRect];
         
         newIcon = UIGraphicsGetImageFromCurrentImageContext();
-        [baseImageIcons addObject:newIcon];
+        //[baseImageIcons addObject:newIcon];
         UIGraphicsEndImageContext();
+        
+        UIGraphicsBeginImageContext(iconSize);
+        [newIcon drawAtPoint:CGPointZero];
+        context = UIGraphicsGetCurrentContext();
+        //CGContextSetBlendMode(context, kCGBlendModeNormal);
+        //[[UIColor whiteColor] setFill];
+        //[punchOutPath fill];
+        newIcon = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [baseImageIcons addObject:newIcon];
     }
     
     baseImageIconViews = [NSMutableArray array];

@@ -13,6 +13,7 @@
 		C48A409018A0125400F69609 /* DropShadowMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A408F18A0125400F69609 /* DropShadowMenuViewController.m */; };
 		C48A409318A0127000F69609 /* BaseImageFilterMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409218A0127000F69609 /* BaseImageFilterMenuViewController.m */; };
 		C48A409618A012EA00F69609 /* OverlayColorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409518A012EA00F69609 /* OverlayColorMenuViewController.m */; };
+		C48A409A18A0C54A00F69609 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409918A0C54A00F69609 /* UIImage+Filters.m */; };
 		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 		C48A409218A0127000F69609 /* BaseImageFilterMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageFilterMenuViewController.m; sourceTree = "<group>"; };
 		C48A409418A012EA00F69609 /* OverlayColorMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayColorMenuViewController.h; sourceTree = "<group>"; };
 		C48A409518A012EA00F69609 /* OverlayColorMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayColorMenuViewController.m; sourceTree = "<group>"; };
+		C48A409818A0C54A00F69609 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filters.h"; sourceTree = "<group>"; };
+		C48A409918A0C54A00F69609 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
 		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
 		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C48A409718A0651200F69609 /* ImageFilter */ = {
+			isa = PBXGroup;
+			children = (
+				C48A409818A0C54A00F69609 /* UIImage+Filters.h */,
+				C48A409918A0C54A00F69609 /* UIImage+Filters.m */,
+			);
+			name = ImageFilter;
+			sourceTree = "<group>";
+		};
 		C4CC8A601897CE4A001F7424 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +174,7 @@
 		C4CC8A721897CE4A001F7424 /* ABPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				C48A409718A0651200F69609 /* ImageFilter */,
 				C4CC8AA41897CE6B001F7424 /* CameraOverlayController */,
 				C4CC8AA31897CE5A001F7424 /* MenuViewControllers */,
 				C4CC8A7B1897CE4A001F7424 /* AppDelegate.h */,
@@ -364,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48A409A18A0C54A00F69609 /* UIImage+Filters.m in Sources */,
 				C48A409618A012EA00F69609 /* OverlayColorMenuViewController.m in Sources */,
 				C4F65AE5189AA5450025EF04 /* SharePhotoViewController.m in Sources */,
 				C4CC8A831897CE4A001F7424 /* ViewController.m in Sources */,
