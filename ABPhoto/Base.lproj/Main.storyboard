@@ -61,8 +61,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="baseImage" destination="2cl-Ss-7Wd" id="uCn-6f-uLe"/>
-                        <outlet property="overlayImage" destination="0Ls-Z8-Cvk" id="KKq-N8-6tt"/>
+                        <outlet property="baseImageView" destination="2cl-Ss-7Wd" id="nAN-07-fky"/>
+                        <outlet property="overlayImageView" destination="0Ls-Z8-Cvk" id="ehD-Ah-Xag"/>
                         <outlet property="pageControl" destination="dTN-0I-a2f" id="hRZ-Y6-Lel"/>
                         <outlet property="scrollMenuView" destination="9KK-uM-WH3" id="pl3-Q4-4Z1"/>
                     </connections>

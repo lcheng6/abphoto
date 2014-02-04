@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */; };
 		C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */; };
 		C48A408D18A00D6000F69609 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48A408C18A00D6000F69609 /* AssetsLibrary.framework */; };
 		C48A409018A0125400F69609 /* DropShadowMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A408F18A0125400F69609 /* DropShadowMenuViewController.m */; };
 		C48A409318A0127000F69609 /* BaseImageFilterMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409218A0127000F69609 /* BaseImageFilterMenuViewController.m */; };
 		C48A409618A012EA00F69609 /* OverlayColorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409518A012EA00F69609 /* OverlayColorMenuViewController.m */; };
 		C48A409A18A0C54A00F69609 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409918A0C54A00F69609 /* UIImage+Filters.m */; };
+		C48A409D18A116D900F69609 /* UIScrollView+HorizontalMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */; };
 		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
@@ -53,8 +53,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C460310A189CEF3C0057F529 /* UIScrollView+MenuManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MenuManagement.h"; sourceTree = "<group>"; };
-		C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MenuManagement.m"; sourceTree = "<group>"; };
 		C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlaySelectionMenuViewController.h; sourceTree = "<group>"; };
 		C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlaySelectionMenuViewController.m; sourceTree = "<group>"; };
 		C48A408C18A00D6000F69609 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -66,6 +64,8 @@
 		C48A409518A012EA00F69609 /* OverlayColorMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayColorMenuViewController.m; sourceTree = "<group>"; };
 		C48A409818A0C54A00F69609 /* UIImage+Filters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filters.h"; sourceTree = "<group>"; };
 		C48A409918A0C54A00F69609 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
+		C48A409B18A116D900F69609 /* UIScrollView+HorizontalMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HorizontalMenus.h"; sourceTree = "<group>"; };
+		C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HorizontalMenus.m"; sourceTree = "<group>"; };
 		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
 		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,8 +182,6 @@
 				C4CC8A7E1897CE4A001F7424 /* Main.storyboard */,
 				C4CC8A811897CE4A001F7424 /* ViewController.h */,
 				C4CC8A821897CE4A001F7424 /* ViewController.m */,
-				C460310A189CEF3C0057F529 /* UIScrollView+MenuManagement.h */,
-				C460310B189CEF3C0057F529 /* UIScrollView+MenuManagement.m */,
 				C4CC8AB51897D2BD001F7424 /* SelectedPhotoViewController.h */,
 				C4CC8AB61897D2BD001F7424 /* SelectedPhotoViewController.m */,
 				C4F65AE3189AA5450025EF04 /* SharePhotoViewController.h */,
@@ -237,6 +235,8 @@
 				C48A409518A012EA00F69609 /* OverlayColorMenuViewController.m */,
 				C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */,
 				C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */,
+				C48A409B18A116D900F69609 /* UIScrollView+HorizontalMenus.h */,
+				C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */,
 			);
 			name = MenuViewControllers;
 			sourceTree = "<group>";
@@ -385,9 +385,9 @@
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
 				C48A409018A0125400F69609 /* DropShadowMenuViewController.m in Sources */,
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,
-				C460310C189CEF3C0057F529 /* UIScrollView+MenuManagement.m in Sources */,
 				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
 				C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */,
+				C48A409D18A116D900F69609 /* UIScrollView+HorizontalMenus.m in Sources */,
 				C4CC8A791897CE4A001F7424 /* main.m in Sources */,
 				C48A409318A0127000F69609 /* BaseImageFilterMenuViewController.m in Sources */,
 			);

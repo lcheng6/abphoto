@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIScrollView+MenuManagement.h"
+#import "UIImage+Filters.h"
 
 @protocol OverlayParameterModificationDelegate <NSObject>
 @required
@@ -32,10 +32,14 @@ typedef struct {
     CGPoint dropShadowParam;
 } OverlayParameter;
 
+typedef struct {
+    UIImageFilterType filterType;
+}BaseImageParameter;
+
 @interface SelectedPhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, OverlayParameterModificationDelegate>
 {
-    __weak IBOutlet UIImageView *baseImage;
-    __weak IBOutlet UIImageView *overlayImage;
+    __weak IBOutlet UIImageView *baseImageView;
+    __weak IBOutlet UIImageView *overlayImageView;
     __weak IBOutlet UIScrollView *scrollMenuView;
     __weak IBOutlet UIPageControl *pageControl;
     

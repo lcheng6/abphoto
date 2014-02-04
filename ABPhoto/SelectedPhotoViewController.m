@@ -18,6 +18,7 @@
 {
     UIImageOrientation baseImageOriginalOrientation;
     UIImage * logoImage;
+    UIImage * baseImage; //the reference to the original taken picture
 
     CameraOverlayViewController * cameraOverlayController;
     
@@ -25,6 +26,7 @@
     LogoTransform localTransformInfo;
     
     OverlayParameter overlayParameter;
+    BaseImageParameter baseImageParameter;
     
     UIPanGestureRecognizer * panRecog;
     UIPinchGestureRecognizer * pinchRecog;
@@ -74,7 +76,7 @@
     [self presentViewController:imagePicker animated:NO completion:nil];
     
     logoTransformInfo.scale = 1;
-    logoTransformInfo.translation = baseImage.center;
+    logoTransformInfo.translation = baseImageView.center;
     logoTransformInfo.rotation = 0;
     logoTransformInfo.logoTransform = CGAffineTransformIdentity;
 
@@ -85,9 +87,9 @@
     rotateRecog = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(respondToPinchRotateAndPan:)];
     
     
-    [overlayImage addGestureRecognizer:panRecog];
-    [overlayImage addGestureRecognizer:pinchRecog];
-    [overlayImage addGestureRecognizer:rotateRecog];
+    [overlayImageView addGestureRecognizer:panRecog];
+    [overlayImageView addGestureRecognizer:pinchRecog];
+    [overlayImageView addGestureRecognizer:rotateRecog];
     
     
     _activeRecognizers = [NSMutableSet set];
@@ -126,6 +128,7 @@
     [scrollMenuView addSubview:opacityMenuController.view];
     [scrollMenuView setScrollEnabled:YES];
     [scrollMenuView setShowsHorizontalScrollIndicator:NO];
+    [pageControl setNumberOfPages:2];
     //[scrollMenuView setPagingEnabled:YES];
     
     CGSize totalSize;
@@ -140,7 +143,7 @@
     
     
     CGPoint translation ;
-    translation = [pan translationInView:overlayImage];
+    translation = [pan translationInView:overlayImageView];
     
     //NSLog(@"translation in logoImageView: (%f, %f)", translation.x, translation.y);
     translation = CGPointApplyAffineTransform(translation, logoTransformInfo.logoTransform);
@@ -155,7 +158,7 @@
     switch(recognizer.state) {
         case UIGestureRecognizerStateBegan:
             if(_activeRecognizers.count == 0) {
-                overlayImage.transform = logoTransformInfo.logoTransform;
+                overlayImageView.transform = logoTransformInfo.logoTransform;
                 [_activeRecognizers addObject:recognizer];
                 localTransformInfo.scale = 1;
                 localTransformInfo.translation = logoTransformInfo.translation;
@@ -194,22 +197,22 @@
         UIRotationGestureRecognizer * rotation = (UIRotationGestureRecognizer *) recognizer;
         localTransformInfo.rotation = [rotation rotation];
         localTransformInfo.logoTransform = CGAffineTransformRotate(logoTransformInfo.logoTransform, localTransformInfo.rotation);
-        overlayImage.transform = localTransformInfo.logoTransform;
+        overlayImageView.transform = localTransformInfo.logoTransform;
     }
     if ([recognizer isKindOfClass:[UIPinchGestureRecognizer class]]) {
         //NSLog(@"Pinching");
         UIPinchGestureRecognizer * pinch = (UIPinchGestureRecognizer *) recognizer;
         localTransformInfo.scale = [pinch scale];
         localTransformInfo.logoTransform = CGAffineTransformScale(logoTransformInfo.logoTransform, localTransformInfo.scale, localTransformInfo.scale);
-        overlayImage.transform = localTransformInfo.logoTransform;
+        overlayImageView.transform = localTransformInfo.logoTransform;
     }
     if ([recognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         UIPanGestureRecognizer * pan = (UIPanGestureRecognizer *) recognizer;
-        localTransformInfo.translation = [pan translationInView:overlayImage];
+        localTransformInfo.translation = [pan translationInView:overlayImageView];
         localTransformInfo.translation = CGPointApplyAffineTransform(localTransformInfo.translation, localTransformInfo.logoTransform);
         localTransformInfo.translation.x = localTransformInfo.translation.x + logoTransformInfo.translation.x;
         localTransformInfo.translation.y = localTransformInfo.translation.y + logoTransformInfo.translation.y;
-        overlayImage.center = localTransformInfo.translation;
+        overlayImageView.center = localTransformInfo.translation;
         
     }
     
@@ -237,7 +240,7 @@
     }
     else if ([recognizer isKindOfClass:[UIPanGestureRecognizer class]]) {
         UIPanGestureRecognizer * pan = (UIPanGestureRecognizer *) recognizer;
-        localTransformInfo.translation = [pan translationInView:overlayImage];
+        localTransformInfo.translation = [pan translationInView:overlayImageView];
         localTransformInfo.translation = CGPointApplyAffineTransform(localTransformInfo.translation, localTransformInfo.logoTransform);
         localTransformInfo.translation.x = localTransformInfo.translation.x + logoTransformInfo.translation.x;
         localTransformInfo.translation.y = localTransformInfo.translation.y + logoTransformInfo.translation.y;
@@ -254,7 +257,7 @@
     
     NSLog(@"end recognizer scale %f rotate %f translation (%f, %f)", localTransformInfo.scale, localTransformInfo.rotation, localTransformInfo.translation.x, localTransformInfo.translation.y);
     
-    overlayImage.transform = logoTransformInfo.logoTransform;
+    overlayImageView.transform = logoTransformInfo.logoTransform;
     //logoImageView.center = localTransformInfo.translation;
     
 }
@@ -275,10 +278,11 @@
     baseImageOriginalOrientation = image.imageOrientation;
     
     UIImage * correctedImage = [self fixImageOrientation:image];
-    baseImage.image = correctedImage;
+    baseImageView.image = correctedImage;
+    baseImage = correctedImage;
     
     logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
-    overlayImage.image = [self fixOverlayImageOrientation:logoImage orientation:baseImageOriginalOrientation];
+    overlayImageView.image = [self fixOverlayImageOrientation:logoImage orientation:baseImageOriginalOrientation];;
     
     [baseImageFilterMenuController setBaseImage:correctedImage];
     
@@ -421,15 +425,15 @@
 }
 
 - (UIImage *)generateCombinedImage {
-    UIImage * overlay = overlayImage.image;
+    UIImage * overlay = overlayImageView.image;
     CGContextRef context;
     
     //CGAffineTransform transform = CGAffineTransformIdentity;
     
-    UIGraphicsBeginImageContext(baseImage.image.size);
+    UIGraphicsBeginImageContext(baseImageView.image.size);
     context = UIGraphicsGetCurrentContext();
     
-    [baseImage.image drawInRect:CGRectMake(0, 0, baseImage.image.size.width, baseImage.image.size.height)];
+    [baseImageView.image drawInRect:CGRectMake(0, 0, baseImageView.image.size.width, baseImageView.image.size.height)];
     
     context = UIGraphicsGetCurrentContext();
     
@@ -449,13 +453,13 @@
     //TODO: need to #define all of these constants.
     float scale;
     //first need to scale the logo to the porportional size of its appearance
-    UIImage *image = baseImage.image;
+    UIImage *image = baseImageView.image;
     
     scale = logoTransformInfo.scale * image.size.width/640;//640 pixels is the width of the display
     CGPoint translationOfLogoCenterInLogoCoordinate = CGPointMake(144.0/2, 144.0/2);
-    CGPoint translationOfLogoCenterInBaseImageCoorindate = overlayImage.center;
+    CGPoint translationOfLogoCenterInBaseImageCoorindate = overlayImageView.center;
     
-    translationOfLogoCenterInBaseImageCoorindate.y = translationOfLogoCenterInBaseImageCoorindate.y - baseImage.frame.origin.y;
+    translationOfLogoCenterInBaseImageCoorindate.y = translationOfLogoCenterInBaseImageCoorindate.y - baseImageView.frame.origin.y;
     
     CGPoint translationOfLogoCenterFromLogoZeroInBaseImageCoordinate = CGPointApplyAffineTransform(translationOfLogoCenterInLogoCoordinate, logoTransformInfo.logoTransform);
     CGPoint translationOfLogoZeroInBaseImageCoordinate = CGPointMake(
@@ -477,11 +481,18 @@
 }
 
 - (void) overlayParamChanged {
-    overlayImage.alpha = overlayParameter.alpha;
+    overlayImageView.alpha = overlayParameter.alpha;
+}
+
+- (void) baseImageParamChanged {
+    UIImage * filteredBaseImage = [baseImage imageWithFilter:baseImageParameter.filterType];
+    baseImageView.image = filteredBaseImage;
 }
 
 -(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex
 {
+    baseImageParameter.filterType = (UIImageFilterType) overlaySelectionIndex;
+    [self baseImageParamChanged];
 }
 -(void) modifyOverlayColorParameter:(CGColorRef) color
 {
