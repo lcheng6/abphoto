@@ -103,12 +103,19 @@
     int xOffset = 0;
     CGRect baseImageFilterFrame;
     
+    scrollMenuView.delegate = self;
+    
     baseImageFilterFrame.size = [BaseImageFilterMenuViewController recommendedSize];
     baseImageFilterFrame.origin.x = 0;
     baseImageFilterFrame.origin.y = 0;
     baseImageFilterMenuController = [[BaseImageFilterMenuViewController alloc] init];
     baseImageFilterMenuController.delegate = self;
     baseImageFilterMenuController.view.frame = baseImageFilterFrame;
+    overlayParameter.overlaySelectionIndex = 0;
+    overlayParameter.color = (__bridge CGColorRef)([UIColor grayColor]);
+    overlayParameter.alpha = 1.0f;
+    overlayParameter.dropShadowParam = CGPointMake(5.0f, 5.0f);
+    
     xOffset += baseImageFilterFrame.size.width;
     
     CGRect opacityMenuFrame;
@@ -425,7 +432,6 @@
 }
 
 - (UIImage *)generateCombinedImage {
-    UIImage * overlay = overlayImageView.image;
     CGContextRef context;
     
     //CGAffineTransform transform = CGAffineTransformIdentity;
@@ -441,7 +447,7 @@
     context = UIGraphicsGetCurrentContext();
     [self scaleAndRotateLogoContext:context];
     
-    [overlay drawInRect:CGRectMake(0, 0, overlay.size.width, overlay.size.height) blendMode:kCGBlendModeNormal alpha:overlayParameter.alpha];
+    [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:overlayParameter.alpha];
     CGContextRestoreGState(context);
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -506,6 +512,18 @@
 -(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam
 {
     
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGPoint offset;
+    offset = scrollView.contentOffset;
+    if (offset.x < [BaseImageFilterMenuViewController recommendedSize].width) {
+        [pageControl setCurrentPage:0];
+    }
+    if(offset.x >= [BaseImageFilterMenuViewController recommendedSize].width) {
+        [pageControl setCurrentPage:1];
+    }
 }
 
 @end

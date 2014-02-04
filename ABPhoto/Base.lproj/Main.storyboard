@@ -86,7 +86,9 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sharing" id="Cgc-qC-xrV"/>
+                    <navigationItem key="navigationItem" title="Sharing" id="Cgc-qC-xrV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vqg-dM-sQ2"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoForShareImageView" destination="Qx4-Po-U2C" id="PoL-eX-5I9"/>
                     </connections>

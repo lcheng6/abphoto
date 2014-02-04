@@ -36,7 +36,7 @@ typedef struct {
     UIImageFilterType filterType;
 }BaseImageParameter;
 
-@interface SelectedPhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, OverlayParameterModificationDelegate>
+@interface SelectedPhotoViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, OverlayParameterModificationDelegate, UIScrollViewDelegate>
 {
     __weak IBOutlet UIImageView *baseImageView;
     __weak IBOutlet UIImageView *overlayImageView;
