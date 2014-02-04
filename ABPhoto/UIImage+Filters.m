@@ -43,6 +43,9 @@ const CGFloat ColorControlPresetInputSaturation = 1.0f;
     //the filter that will be applied to the ciImage
     CIFilter *filter;
     switch (kFilterType) {
+        case UIImageFilterTypeNone: {
+            return self;
+        }
         case UIImageFilterTypeSepia:{
             filter = [CIFilter filterWithName:@"CISepiaTone" keysAndValues: kCIInputImageKey, ciImage, kCIInputIntensityKey, @(SepiaPresetInputIntensity), nil];
             break;

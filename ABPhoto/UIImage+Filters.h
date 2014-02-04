@@ -10,6 +10,7 @@
 
 @interface UIImage (Filters)
 typedef enum {
+    UIImageFilterTypeNone,
     UIImageFilterTypeSepia,
     UIImageFilterTypeVignette,
     UIImageFilterTypeTemperature,

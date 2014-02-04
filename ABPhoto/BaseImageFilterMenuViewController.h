@@ -15,7 +15,7 @@
 
 
 @property (nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
-- (int) getSelectedImageIndex;
+- (int) getSelectedFilterIndex;
 - (void) setBaseImage:(UIImage*) baseImage;
 +(CGSize) recommendedSize;
 

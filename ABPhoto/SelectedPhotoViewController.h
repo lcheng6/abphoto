@@ -11,7 +11,7 @@
 
 @protocol OverlayParameterModificationDelegate <NSObject>
 @required
--(void) modifyOverlayImageIndexParameter:(int)overlaySelectionIndex;
+-(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex;
 -(void) modifyOverlayColorParameter:(CGColorRef) color;
 -(void) modifyOverlayOpacityParameter:(float) alpha;
 -(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam;

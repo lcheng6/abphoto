@@ -12,8 +12,10 @@
 @interface BaseImageFilterMenuViewController ()
 {
     UITapGestureRecognizer * tapGestureRecognizer;
-    int _selectedImageIndex;
+    int _selectedFilterIndex;
     UIImage * _baseImage;
+    UIImage * _baseSubImage;
+    UIImage * _pouchOutMask;
     UILabel * _title;
 }
 @property (nonatomic, strong) NSMutableArray * baseFilteredImageIcons;
@@ -41,6 +43,7 @@
     tapGestureRecognizer.numberOfTapsRequired = 1;
     tapGestureRecognizer.numberOfTouchesRequired =1;
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    _selectedFilterIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +73,7 @@
             //_selectedOpacity = 1.0f - (float)regionIndex * .2f;
             //[self drawSquareAroundSelectedOpacityIcon];
             //[self.delegate modifyOverlayOpacityParameter:_selectedOpacity];
-            _selectedImageIndex = regionIndex;
+            _selectedFilterIndex = regionIndex;
         }
     }
 }
@@ -94,14 +97,13 @@
     punchOutRect.size = CGSizeMake(60*2, 60*2);
     punchOutRect.origin = CGPointMake(5, 5);
     UIBezierPath* punchOutPath = [UIBezierPath bezierPathWithRoundedRect:punchOutRect cornerRadius:20.0f];
-    UIImage * punchOut = nil;
     UIGraphicsBeginImageContext(punchOutSize);
     [[UIColor blackColor] setFill];
     context = UIGraphicsGetCurrentContext();
     CGContextFillRect(context, CGRectMake(0, 0, 65*2, 65*2));
     [[UIColor whiteColor] setFill];
     [punchOutPath fill];
-    punchOut = UIGraphicsGetImageFromCurrentImageContext();
+    _pouchOutMask = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     
@@ -117,7 +119,7 @@
     UIGraphicsBeginImageContext(subImageSize);
     CGContextScaleCTM(context, widthScale, widthScale);
     [baseImage drawInRect:CGRectMake(0, 0, baseImage.size.width, baseImage.size.height)];
-    UIImage * subImage = UIGraphicsGetImageFromCurrentImageContext();
+    _baseSubImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     //Make 6 small icons for the images.
@@ -125,7 +127,7 @@
     
     for (int i=0; i<[BaseImageFilterMenuViewController getNumberOfFilters]; i++) {
         UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:i];
-        UIImage * filteredSubImage = [subImage imageWithFilter:filterType];
+        UIImage * filteredSubImage = [_baseSubImage imageWithFilter:filterType];
         
         CGRect toRect = CGRectMake(0, (filteredSubImage.size.width-filteredSubImage.size.height)/2, filteredSubImage.size.width, filteredSubImage.size.height);
         UIGraphicsBeginImageContext(iconSize);
@@ -137,7 +139,7 @@
         //punch out icons
         UIGraphicsBeginImageContext(iconSize);
         [filteredSquaredSubImage drawAtPoint:CGPointZero];
-        [punchOut drawAtPoint:CGPointZero blendMode:kCGBlendModeMultiply alpha:1];
+        [_pouchOutMask drawAtPoint:CGPointZero blendMode:kCGBlendModeMultiply alpha:1];
         UIImage * filteredSquareIcon = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         [baseFilteredImageIcons addObject:filteredSquareIcon];
@@ -165,7 +167,9 @@
         [self.view addSubview:iconView];
     }
     
-    _selectedImageIndex = 0;
+    _selectedFilterIndex = 0;
+    
+    [self drawSquareAroundSelectedFilterIcon];
     
     CGRect titleRect;
     titleRect.origin.x = 0; titleRect.origin.y = 66;
@@ -179,13 +183,99 @@
     [self.view addSubview:_title];
 }
 
-- (int) getSelectedImageIndex {
-    return _selectedImageIndex;
+- (int) getSelectedFilterIndex {
+    return _selectedFilterIndex;
+}
+
+- (void) deSelectFilterIcon {
+    
+    CGSize iconSize;
+    iconSize.width = 65 * 2;
+    iconSize.height = 65 * 2;
+    
+    UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:_selectedFilterIndex];
+    UIImage * filteredSubImage = [_baseSubImage imageWithFilter:filterType];
+    
+    CGRect toRect = CGRectMake(0, (filteredSubImage.size.width-filteredSubImage.size.height)/2, filteredSubImage.size.width, filteredSubImage.size.height);
+    UIGraphicsBeginImageContext(iconSize);
+    [filteredSubImage drawInRect:toRect];
+    UIImage * filteredSquaredSubImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    
+    //punch out icons
+    UIGraphicsBeginImageContext(iconSize);
+    [filteredSquaredSubImage drawAtPoint:CGPointZero];
+    [_pouchOutMask drawAtPoint:CGPointZero blendMode:kCGBlendModeMultiply alpha:1];
+    UIImage * filteredSquareIcon = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [baseFilteredImageIcons replaceObjectAtIndex:_selectedFilterIndex withObject:filteredSquareIcon];
+    
+    UIImageView * iconView  = [baseFilteredImageIconViews objectAtIndex:_selectedFilterIndex];
+    iconView.image = filteredSquareIcon;
+}
+
+- (void) drawSquareAroundSelectedFilterIcon {
+    
+    CGSize iconSize;
+    CGRect logoRect;
+    
+    iconSize.width = 65 * 2;
+    iconSize.height = 65 * 2;
+    
+    logoRect.size = iconSize;
+    logoRect.origin = CGPointMake(0.0f, 0.0f);
+
+    UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:_selectedFilterIndex];
+    UIImage * filteredSubImage = [_baseSubImage imageWithFilter:filterType];
+    
+    CGRect toRect = CGRectMake(0, (filteredSubImage.size.width-filteredSubImage.size.height)/2, filteredSubImage.size.width, filteredSubImage.size.height);
+    UIGraphicsBeginImageContext(iconSize);
+    [filteredSubImage drawInRect:toRect];
+    UIImage * filteredSquaredSubImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:2.0f];
+    path.lineWidth = 4.0f;
+    
+    
+    //punch out icons
+    UIGraphicsBeginImageContext(iconSize);
+    [filteredSquaredSubImage drawAtPoint:CGPointZero];
+    [_pouchOutMask drawAtPoint:CGPointZero blendMode:kCGBlendModeMultiply alpha:1];
+    [[[[[UIApplication sharedApplication] delegate] window] tintColor] setStroke];
+    [path stroke];
+    UIImage * filteredSquareIcon = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    [baseFilteredImageIcons replaceObjectAtIndex:_selectedFilterIndex withObject:filteredSquareIcon];
+    
+    UIImageView * iconView  = [baseFilteredImageIconViews objectAtIndex:_selectedFilterIndex];
+    iconView.image = filteredSquareIcon;
+    
 }
 
 - (void)respondToBaseFilterImageSelection:(UITapGestureRecognizer *) tapRecog
 {
+    CGPoint tapPoint = [tapRecog locationInView:self.view];
+    if(tapPoint.y > 65) {
+        //This is outside of the touch area of the icons in the layout, do nothing.
+        return;
+    }
     
+    int regionIndex = (int) tapPoint.x / (65 + 10);
+    int regionOffset = (int) tapPoint.x % (int) (65 + 10);
+    if (regionIndex > 9) {
+        return;
+    }else {
+        if(regionOffset < 10) {
+            return;
+        }else {
+            [self deSelectFilterIcon];
+            _selectedFilterIndex = regionIndex;
+            [self drawSquareAroundSelectedFilterIcon];
+            [self.delegate modifyOverlayFilterIndexParameter:_selectedFilterIndex];
+        }
+    }
 }
 
 + (UIImageFilterType) convertIntToFilterType:(int) filterInt{
@@ -193,7 +283,7 @@
 }
 
 + (int) getNumberOfFilters {
-    return 8;
+    return 9;
 }
 
 + (CGSize) recommendedSize

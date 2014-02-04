@@ -480,7 +480,7 @@
     overlayImage.alpha = overlayParameter.alpha;
 }
 
--(void) modifyOverlayImageIndexParameter:(int)overlaySelectionIndex
+-(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex
 {
 }
 -(void) modifyOverlayColorParameter:(CGColorRef) color
