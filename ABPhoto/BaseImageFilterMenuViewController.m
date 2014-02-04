@@ -124,48 +124,25 @@
     baseFilteredImageIcons = [NSMutableArray array];
     
     for (int i=0; i<[BaseImageFilterMenuViewController getNumberOfFilters]; i++) {
-        /*
-        UIGraphicsBeginImageContext(iconSize);
-        context = UIGraphicsGetCurrentContext();
-        UIImage * newIcon = nil;
-        
-        CGContextScaleCTM(context, widthScale, heightScale);
-        
-        CGRect centerSquareRect;
-        centerSquareRect.size.height = baseImage.size.height;
-        centerSquareRect.size.width = baseImage.size.width;
-        centerSquareRect.origin.x = 0;
-        centerSquareRect.origin.y = -1*(baseImage.size.height - baseImage.size.width)/2;
-        [baseImage drawInRect:centerSquareRect];
-        
-        newIcon = UIGraphicsGetImageFromCurrentImageContext();
-        //[baseImageIcons addObject:newIcon];
-        UIGraphicsEndImageContext();
-         */
         UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:i];
         UIImage * filteredSubImage = [subImage imageWithFilter:filterType];
         
-        CGRect fromRect = CGRectMake(0, 0, filteredSubImage.size.width, filteredSubImage.size.width);
-        CGImageRef filteredSquareSubImageRef = CGImageCreateWithImageInRect(filteredSubImage.CGImage, fromRect);
-        UIImage *filteredSquareSubImage = [UIImage imageWithCGImage:filteredSquareSubImageRef];
-        CGImageRelease(filteredSquareSubImageRef);
-        //[baseFilteredImageIcons addObject:filteredSquareSubImage];
+        CGRect toRect = CGRectMake(0, (filteredSubImage.size.width-filteredSubImage.size.height)/2, filteredSubImage.size.width, filteredSubImage.size.height);
+        UIGraphicsBeginImageContext(iconSize);
+        [filteredSubImage drawInRect:toRect];
+        UIImage * filteredSquaredSubImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
         
         
         //punch out icons
         UIGraphicsBeginImageContext(iconSize);
-        [filteredSubImage drawAtPoint:CGPointZero];
+        [filteredSquaredSubImage drawAtPoint:CGPointZero];
         [punchOut drawAtPoint:CGPointZero blendMode:kCGBlendModeMultiply alpha:1];
         UIImage * filteredSquareIcon = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         [baseFilteredImageIcons addObject:filteredSquareIcon];
         
         
-        /*
-        UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:i];
-        UIImage * filteredIcon = [newIcon imageWithFilter:filterType];
-        [baseImageIcons addObject:filteredIcon];
-         */
     }
     
     baseFilteredImageIconViews = [NSMutableArray array];
