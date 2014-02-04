@@ -7,6 +7,7 @@
 //
 
 #import "BaseImageFilterMenuViewController.h"
+#import "UIImage+Filters.h"
 
 @interface BaseImageFilterMenuViewController ()
 {
@@ -15,13 +16,13 @@
     UIImage * _baseImage;
     UILabel * _title;
 }
-@property (nonatomic, strong) NSMutableArray * baseImageIcons;
-@property (nonatomic, strong) NSMutableArray * baseImageIconViews;
+@property (nonatomic, strong) NSMutableArray * baseFilteredImageIcons;
+@property (nonatomic, strong) NSMutableArray * baseFilteredImageIconViews;
 @end
 
 @implementation BaseImageFilterMenuViewController
-@synthesize baseImageIcons;
-@synthesize baseImageIconViews;
+@synthesize baseFilteredImageIcons;
+@synthesize baseFilteredImageIconViews;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +75,7 @@
     }
 }
 
+
 - (void) setBaseImage:(UIImage*) baseImage
 {
     _baseImage = baseImage;
@@ -88,25 +90,41 @@
     iconSize.width = 65 * 2;
     iconSize.height = 65 * 2;
     
-    float widthScale = iconSize.width/_baseImage.size.width;
-    float heightScale = widthScale;//iconSize.height/baseImage.size.height;
-    
     //Make a punchout for the the 6 images
-    punchOutRect.size = CGSizeMake(61*2, 61*2);
-    punchOutRect.origin = CGPointMake(4, 4);
-    UIBezierPath* punchOutPath = [UIBezierPath bezierPathWithRoundedRect:punchOutRect cornerRadius:10.0f];
+    punchOutRect.size = CGSizeMake(60*2, 60*2);
+    punchOutRect.origin = CGPointMake(5, 5);
+    UIBezierPath* punchOutPath = [UIBezierPath bezierPathWithRoundedRect:punchOutRect cornerRadius:20.0f];
     UIImage * punchOut = nil;
     UIGraphicsBeginImageContext(punchOutSize);
-    [[UIColor whiteColor] setFill];
+    [[UIColor blackColor] setFill];
     context = UIGraphicsGetCurrentContext();
-    //CGContextFillRect(context, CGRectMake(0, 0, 65*2, 65*2));
+    CGContextFillRect(context, CGRectMake(0, 0, 65*2, 65*2));
+    [[UIColor whiteColor] setFill];
     [punchOutPath fill];
     punchOut = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
+    
+    //Make a small rectangle sub image of the main image
+    
+    CGSize subImageSize;
+    CGRect subImageRect;
+    subImageSize = CGSizeMake(65*2, 65*2*4/3);
+    subImageRect.origin = CGPointMake(0,0);
+    subImageRect.size = subImageSize;
+    
+    float widthScale = subImageSize.width/_baseImage.size.width;
+    UIGraphicsBeginImageContext(subImageSize);
+    CGContextScaleCTM(context, widthScale, widthScale);
+    [baseImage drawInRect:CGRectMake(0, 0, baseImage.size.width, baseImage.size.height)];
+    UIImage * subImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     //Make 6 small icons for the images.
-    baseImageIcons = [NSMutableArray array];
-    for (int i=0; i<6; i++) {
+    baseFilteredImageIcons = [NSMutableArray array];
+    
+    for (int i=0; i<[BaseImageFilterMenuViewController getNumberOfFilters]; i++) {
+        /*
         UIGraphicsBeginImageContext(iconSize);
         context = UIGraphicsGetCurrentContext();
         UIImage * newIcon = nil;
@@ -123,30 +141,45 @@
         newIcon = UIGraphicsGetImageFromCurrentImageContext();
         //[baseImageIcons addObject:newIcon];
         UIGraphicsEndImageContext();
+         */
+        UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:i];
+        UIImage * filteredSubImage = [subImage imageWithFilter:filterType];
         
+        CGRect fromRect = CGRectMake(0, 0, filteredSubImage.size.width, filteredSubImage.size.width);
+        CGImageRef filteredSquareSubImageRef = CGImageCreateWithImageInRect(filteredSubImage.CGImage, fromRect);
+        UIImage *filteredSquareSubImage = [UIImage imageWithCGImage:filteredSquareSubImageRef];
+        CGImageRelease(filteredSquareSubImageRef);
+        //[baseFilteredImageIcons addObject:filteredSquareSubImage];
+        
+        
+        //punch out icons
         UIGraphicsBeginImageContext(iconSize);
-        [newIcon drawAtPoint:CGPointZero];
-        context = UIGraphicsGetCurrentContext();
-        //CGContextSetBlendMode(context, kCGBlendModeNormal);
-        //[[UIColor whiteColor] setFill];
-        //[punchOutPath fill];
-        newIcon = UIGraphicsGetImageFromCurrentImageContext();
+        [filteredSubImage drawAtPoint:CGPointZero];
+        [punchOut drawAtPoint:CGPointZero blendMode:kCGBlendModeMultiply alpha:1];
+        UIImage * filteredSquareIcon = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        [baseImageIcons addObject:newIcon];
+        [baseFilteredImageIcons addObject:filteredSquareIcon];
+        
+        
+        /*
+        UIImageFilterType filterType = [BaseImageFilterMenuViewController convertIntToFilterType:i];
+        UIImage * filteredIcon = [newIcon imageWithFilter:filterType];
+        [baseImageIcons addObject:filteredIcon];
+         */
     }
     
-    baseImageIconViews = [NSMutableArray array];
-    for (int index = 0; index < [baseImageIcons count]; index ++) {
-        UIImage * icon = [baseImageIcons objectAtIndex:index];
+    baseFilteredImageIconViews = [NSMutableArray array];
+    for (int index = 0; index < [baseFilteredImageIcons count]; index ++) {
+        UIImage * icon = [baseFilteredImageIcons objectAtIndex:index];
         UIImageView * iconView = [[UIImageView alloc] initWithImage:icon];
-        [baseImageIconViews addObject:iconView];
+        [baseFilteredImageIconViews addObject:iconView];
     }
     
     CGRect imageFrameRect;
     imageFrameRect.size.width = 65;
     imageFrameRect.size.height = 65;
-    for (int index = 0; index < [baseImageIconViews count]; index++) {
-        UIImageView * iconView = [baseImageIconViews objectAtIndex:index];
+    for (int index = 0; index < [baseFilteredImageIconViews count]; index++) {
+        UIImageView * iconView = [baseFilteredImageIconViews objectAtIndex:index];
         imageFrameRect.origin.x = 10 * (index+1) + 65 * index;
         imageFrameRect.origin.y = 0;
         
@@ -168,6 +201,7 @@
     _title.font = [UIFont systemFontOfSize:14.0f];
     [self.view addSubview:_title];
 }
+
 - (int) getSelectedImageIndex {
     return _selectedImageIndex;
 }
@@ -177,9 +211,17 @@
     
 }
 
++ (UIImageFilterType) convertIntToFilterType:(int) filterInt{
+    return (UIImageFilterType) (filterInt % [BaseImageFilterMenuViewController getNumberOfFilters]);
+}
+
++ (int) getNumberOfFilters {
+    return 8;
+}
+
 + (CGSize) recommendedSize
 {
-    int numImages = 6;
+    int numImages = [BaseImageFilterMenuViewController getNumberOfFilters];
     CGSize size;
     size.height = 80;
     size.width = 65 * numImages + 10 * numImages;
