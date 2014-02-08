@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SharePhotoViewController : UIViewController
+@interface SharePhotoViewController : UIViewController <UIActionSheetDelegate>
 {
     __weak IBOutlet UIImageView *photoForShareImageView;
-    
+    __weak IBOutlet UIBarButtonItem *sharePhotoButton;
 }
 @property (nonatomic, strong) UIImage * photoForShare;
+- (IBAction)shareButtonPressed:(id)sender;
 
 @end

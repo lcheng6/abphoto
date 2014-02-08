@@ -87,10 +87,15 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Sharing" id="Cgc-qC-xrV">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vqg-dM-sQ2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="vqg-dM-sQ2">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="kMb-2C-Eat" id="a04-Z8-RrM"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="photoForShareImageView" destination="Qx4-Po-U2C" id="PoL-eX-5I9"/>
+                        <outlet property="sharePhotoButton" destination="vqg-dM-sQ2" id="XIe-Cv-bno"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UvT-ny-0s2" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,9 @@
 #import "SharePhotoViewController.h"
 
 @interface SharePhotoViewController ()
-
+{
+    UIActionSheet * shareSheet;
+}
 @end
 
 @implementation SharePhotoViewController
@@ -38,4 +40,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)shareButtonPressed:(id)sender {
+    shareSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Fuck", @"Ass", @"Damn it", nil];
+    //shareSheet.visible = YES;
+    [shareSheet showFromBarButtonItem:sharePhotoButton animated:YES];
+}
 @end
