@@ -16,8 +16,8 @@
 
 - (void) setLogoImage:(UIImage*) logoImage;
 - (void) setOpacityOfLogoImage:(float) logoOpacity;
-- (float) getShadowOpacity;
-- (CGPoint) getShadowOffset;
+- (float) getShadowRadius;
+- (CGSize) getShadowOffset;
 
 @property(nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
 + (CGSize) recommendedSize;

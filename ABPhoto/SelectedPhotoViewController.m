@@ -535,7 +535,7 @@
     overlayParameter.alpha = alpha;
     [self overlayParamChanged];
 }
--(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam shadowOpacity:(float)shadowAlpha
+-(void) modifyOverlayDropShadowParameter:(CGSize) dropShadowParam shadowOpacity:(CGFloat) dropShadowBlur
 {
     
 }

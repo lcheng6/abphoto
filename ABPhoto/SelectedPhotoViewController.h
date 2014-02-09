@@ -14,7 +14,7 @@
 -(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex;
 -(void) modifyOverlayColorParameter:(CGColorRef) color;
 -(void) modifyOverlayOpacityParameter:(float) alpha;
--(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam shadowOpacity:(float) shadowAlpha;
+-(void) modifyOverlayDropShadowParameter:(CGSize) dropShadowParam shadowOpacity:(CGFloat) dropShadowBlur;
 
 @end
 

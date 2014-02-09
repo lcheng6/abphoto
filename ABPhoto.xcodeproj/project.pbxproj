@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C4229FAF18A72864001B28BC /* ImageBorderMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4229FAE18A72864001B28BC /* ImageBorderMenuViewController.m */; };
+		C4229FB218A76F65001B28BC /* DropShadowColorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */; };
 		C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */; };
 		C48A408D18A00D6000F69609 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48A408C18A00D6000F69609 /* AssetsLibrary.framework */; };
 		C48A409018A0125400F69609 /* DropShadowMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A408F18A0125400F69609 /* DropShadowMenuViewController.m */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		C4229FAD18A72864001B28BC /* ImageBorderMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBorderMenuViewController.h; sourceTree = "<group>"; };
 		C4229FAE18A72864001B28BC /* ImageBorderMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBorderMenuViewController.m; sourceTree = "<group>"; };
+		C4229FB018A76F65001B28BC /* DropShadowColorMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropShadowColorMenuViewController.h; sourceTree = "<group>"; };
+		C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropShadowColorMenuViewController.m; sourceTree = "<group>"; };
 		C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlaySelectionMenuViewController.h; sourceTree = "<group>"; };
 		C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlaySelectionMenuViewController.m; sourceTree = "<group>"; };
 		C48A408C18A00D6000F69609 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -242,6 +245,8 @@
 				C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */,
 				C4229FAD18A72864001B28BC /* ImageBorderMenuViewController.h */,
 				C4229FAE18A72864001B28BC /* ImageBorderMenuViewController.m */,
+				C4229FB018A76F65001B28BC /* DropShadowColorMenuViewController.h */,
+				C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */,
 			);
 			name = MenuViewControllers;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
 				C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */,
 				C48A409D18A116D900F69609 /* UIScrollView+HorizontalMenus.m in Sources */,
+				C4229FB218A76F65001B28BC /* DropShadowColorMenuViewController.m in Sources */,
 				C4CC8A791897CE4A001F7424 /* main.m in Sources */,
 				C48A409318A0127000F69609 /* BaseImageFilterMenuViewController.m in Sources */,
 				C4229FAF18A72864001B28BC /* ImageBorderMenuViewController.m in Sources */,
