@@ -121,9 +121,11 @@
     baseImageFilterMenuController.delegate = self;
     baseImageFilterMenuController.view.frame = baseImageFilterFrame;
     overlayParameter.overlaySelectionIndex = 0;
-    overlayParameter.color = (__bridge CGColorRef)([UIColor grayColor]);
+    overlayParameter.overlayColor = [[UIColor grayColor] CGColor];
     overlayParameter.alpha = 1.0f;
-    overlayParameter.dropShadowParam = CGPointMake(5.0f, 5.0f);
+    overlayParameter.dropShadowOffset = CGSizeMake(0.0f, 0.0f);
+    overlayParameter.dropShadowBlurRadius = 0.0f;
+    overlayParameter.dropShadowAlpha = 1.0f;
     
     xOffset += baseImageFilterFrame.size.width;
     [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
@@ -473,6 +475,22 @@
     context = UIGraphicsGetCurrentContext();
     [self scaleAndRotateLogoContext:context];
     
+    CGSize adjustedOffset = overlayParameter.dropShadowOffset;
+    CGPoint adjustedOffsetPoint;
+    adjustedOffsetPoint.x = adjustedOffset.width;
+    adjustedOffsetPoint.y = adjustedOffset.height;
+    
+    //TODO: figure out the ratio;
+    adjustedOffsetPoint.x *= (logoImage.size.width/144.0f);
+    adjustedOffsetPoint.y *= (logoImage.size.height/144.0f);
+    adjustedOffsetPoint = CGPointApplyAffineTransform(adjustedOffsetPoint, logoTransformInfo.logoTransform);
+    
+    adjustedOffset.width = adjustedOffsetPoint.x;
+    adjustedOffset.height = adjustedOffsetPoint.y;
+    
+    CGFloat adjustedBlurRadius = overlayParameter.dropShadowBlurRadius;
+    adjustedBlurRadius *= (logoImage.size.width/144.0f * 2.0f);
+    CGContextSetShadowWithColor(context, adjustedOffset, adjustedBlurRadius, [[UIColor redColor] CGColor]);
     [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:overlayParameter.alpha];
     CGContextRestoreGState(context);
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -521,6 +539,14 @@
     baseImageView.image = filteredBaseImage;
 }
 
+- (void) overlayDropShadowParamChanged {
+    
+    overlayImageView.layer.shadowColor = [[UIColor redColor] CGColor];
+    overlayImageView.layer.shadowOffset = overlayParameter.dropShadowOffset;
+    overlayImageView.layer.shadowRadius = overlayParameter.dropShadowBlurRadius;
+    overlayImageView.layer.shadowOpacity = overlayParameter.dropShadowAlpha;
+}
+
 -(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex
 {
     baseImageParameter.filterType = (UIImageFilterType) overlaySelectionIndex;
@@ -537,7 +563,10 @@
 }
 -(void) modifyOverlayDropShadowParameter:(CGSize) dropShadowParam shadowOpacity:(CGFloat) dropShadowBlur
 {
-    
+    overlayParameter.dropShadowOffset = dropShadowParam;
+    overlayParameter.dropShadowBlurRadius = dropShadowBlur;
+    overlayParameter.dropShadowAlpha = 1.0f;
+    [self overlayDropShadowParamChanged];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

@@ -27,10 +27,11 @@ typedef struct {
 
 typedef struct {
     int overlaySelectionIndex;
-    CGColorRef color;
+    CGColorRef overlayColor;
     float alpha;
-    CGPoint dropShadowParam;
-    float shadowAlpha;
+    CGSize dropShadowOffset;
+    CGFloat dropShadowBlurRadius;
+    float dropShadowAlpha;
 } OverlayParameter;
 
 typedef struct {

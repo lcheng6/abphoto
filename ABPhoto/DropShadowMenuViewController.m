@@ -53,19 +53,20 @@
 - (void) buildOffsetAndBlurValuesArray {
     _shadowOffsets = [NSMutableArray array];
     
+    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)]];
+    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)]];
+    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)]];
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(3.0f, 3.0f)]];
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(4.0f, 4.0f)]];
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(5.0f, 5.0f)]];
-    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(6.5f, 6.5f)]];
-    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(8.0f, 8.0f)]];
-    
     
     _shadowBlurValues = [NSMutableArray array];
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:0.0f]];
     [_shadowBlurValues addObject:[NSNumber numberWithFloat:3.0f]];
     [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.0f]];
-    [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.5f]];
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:3.0f]];
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.0f]];
     [_shadowBlurValues addObject:[NSNumber numberWithFloat:5.0f]];
-    [_shadowBlurValues addObject:[NSNumber numberWithFloat:5.5f]];
     
 }
 - (void) setOpacityOfLogoImage:(float)logoOpacity {
@@ -86,7 +87,7 @@
     float heightScale = iconSize.height / _logoImage.size.height;
     
     shadowIcons = [NSMutableArray array];
-    for (int i=0; i< 5; i++) {
+    for (int i=0; i< 6; i++) {
         UIGraphicsBeginImageContext(iconSize);
         CGContextRef context = UIGraphicsGetCurrentContext();
         UIImage * newIcon= nil;
@@ -283,7 +284,7 @@
     CGSize size;
     size.height = 80;
     //5 images and 6 gaps of 10 units between each
-    size.width = 65 * 5 + 10 * 5;
+    size.width = 65 * 6 + 10 * 6;
     
     return size;
 }
