@@ -51,13 +51,16 @@
 {
     opaqueIcons = [NSMutableArray array];
     CGSize iconSize;
+    CGRect roundSquareRect;
     iconSize.width = 65*2;
     iconSize.height = 65*2;
+    roundSquareRect.size = CGSizeMake(60*2, 60*2);
+    roundSquareRect.origin = CGPointMake(5, 5);
     
     float widthScale = iconSize.width / logoImage.size.width;
     float heightScale = iconSize.height / logoImage.size.height;
     
-    for (float alpha=1; alpha > 0; alpha -=.2) {
+    for (float alpha=1; alpha > 0.01; alpha -=.2) {
         UIGraphicsBeginImageContext(iconSize);
         CGContextRef context = UIGraphicsGetCurrentContext();
         UIImage * newIcon= nil;
@@ -67,6 +70,10 @@
         //CGContextSetFillColorWithColor(context, (__bridge CGColorRef)([UIColor blackColor]));
         //CGContextFillRect(context, logRect);
         //CGContextSetBlendMode(context, kCGBlendModeLuminosity);
+        
+        UIBezierPath * roundSquare = [UIBezierPath bezierPathWithRoundedRect:roundSquareRect cornerRadius:20.0f];
+        [[UIColor whiteColor] setFill];
+        [roundSquare fill];
         CGContextScaleCTM(context, widthScale, heightScale);
         [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:alpha];
         newIcon = UIGraphicsGetImageFromCurrentImageContext();
@@ -114,12 +121,16 @@
     UIImage * iconWithoutRoundedSquare = nil;
     CGSize iconSize;
     CGRect logoRect;
+    CGRect roundSquareRect;
     
     iconSize.width = 65*2;
     iconSize.height = 65*2;
     
     logoRect.size = iconSize;
     logoRect.origin = CGPointMake(0.0f, 0.0f);
+    
+    roundSquareRect.size = CGSizeMake(60*2, 60*2);
+    roundSquareRect.origin = CGPointMake(5, 5);
     
     float widthScale = iconSize.width / _logoImage.size.width;
     float heightScale = iconSize.height / _logoImage.size.height;
@@ -129,6 +140,10 @@
     
     context = UIGraphicsGetCurrentContext();
     
+    //draw white rounded icon
+    UIBezierPath * roundSquare = [UIBezierPath bezierPathWithRoundedRect:roundSquareRect cornerRadius:20.0f];
+    [[UIColor whiteColor] setFill];
+    [roundSquare fill];
     
     //draw the logo image.
     CGContextScaleCTM(context, widthScale, heightScale);
@@ -149,12 +164,16 @@
     UIImage * iconWithRoundedSquare = nil;
     CGSize iconSize;
     CGRect logoRect;
+    CGRect roundSquareRect;
     
     iconSize.width = 65*2;
     iconSize.height = 65*2;
     
     logoRect.size = iconSize;
     logoRect.origin = CGPointMake(0.0f, 0.0f);
+    
+    roundSquareRect.size = CGSizeMake(60*2, 60*2);
+    roundSquareRect.origin = CGPointMake(5, 5);
     
     float widthScale = iconSize.width / _logoImage.size.width;
     float heightScale = iconSize.height / _logoImage.size.height;
@@ -174,6 +193,11 @@
     //[path fill];
     //CGContextClosePath(context);
     //CGContextDrawPath(context, mode);
+    
+    //draw rounded white square
+    UIBezierPath * roundSquare = [UIBezierPath bezierPathWithRoundedRect:roundSquareRect cornerRadius:20.0f];
+    [[UIColor whiteColor] setFill];
+    [roundSquare fill];
     
     //draw the logo image.
     CGContextScaleCTM(context, widthScale, heightScale);

@@ -461,18 +461,18 @@
     //first need to scale the logo to the porportional size of its appearance
     UIImage *image = baseImageView.image;
     
-    scale = logoTransformInfo.scale * image.size.width/640;//640 pixels is the width of the display
-    CGPoint translationOfLogoCenterInLogoCoordinate = CGPointMake(144.0/2, 144.0/2);
+    scale = (144.0f/320.0f) * logoTransformInfo.scale * image.size.width/logoImage.size.width; //144 is the number of points of overlay image's width, and 320 is the width of screen in points.
+    CGPoint translationOfLogoCenterInLogoCoordinate = CGPointMake(logoImage.size.width/2, logoImage.size.width/2);
     CGPoint translationOfLogoCenterInBaseImageCoorindate = overlayImageView.center;
     
     translationOfLogoCenterInBaseImageCoorindate.y = translationOfLogoCenterInBaseImageCoorindate.y - baseImageView.frame.origin.y;
     
     CGPoint translationOfLogoCenterFromLogoZeroInBaseImageCoordinate = CGPointApplyAffineTransform(translationOfLogoCenterInLogoCoordinate, logoTransformInfo.logoTransform);
     CGPoint translationOfLogoZeroInBaseImageCoordinate = CGPointMake(
-     (translationOfLogoCenterInBaseImageCoorindate.x - translationOfLogoCenterFromLogoZeroInBaseImageCoordinate.x),
-     (translationOfLogoCenterInBaseImageCoorindate.y - translationOfLogoCenterFromLogoZeroInBaseImageCoordinate.y));
+     (translationOfLogoCenterInBaseImageCoorindate.x * image.size.width/320.f - translationOfLogoCenterFromLogoZeroInBaseImageCoordinate.x / (logoImage.size.width/144.0f * 320.0f / image.size.width)),
+     (translationOfLogoCenterInBaseImageCoorindate.y * image.size.width/320.f - translationOfLogoCenterFromLogoZeroInBaseImageCoordinate.y / (logoImage.size.width/144.0f * 320.0f / image.size.width)));
     
-    CGContextTranslateCTM(context, translationOfLogoZeroInBaseImageCoordinate.x * image.size.width/320, translationOfLogoZeroInBaseImageCoordinate.y * image.size.width/320);
+    CGContextTranslateCTM(context, translationOfLogoZeroInBaseImageCoordinate.x, translationOfLogoZeroInBaseImageCoordinate.y);
     CGContextScaleCTM(context, scale, scale);
     CGContextRotateCTM(context, logoTransformInfo.rotation);
 }
