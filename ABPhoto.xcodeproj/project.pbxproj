@@ -235,6 +235,8 @@
 				C48A409218A0127000F69609 /* BaseImageFilterMenuViewController.m */,
 				C48A408E18A0125400F69609 /* DropShadowMenuViewController.h */,
 				C48A408F18A0125400F69609 /* DropShadowMenuViewController.m */,
+				C4229FB018A76F65001B28BC /* DropShadowColorMenuViewController.h */,
+				C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */,
 				C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */,
 				C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */,
 				C48A409418A012EA00F69609 /* OverlayColorMenuViewController.h */,
@@ -245,8 +247,6 @@
 				C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */,
 				C4229FAD18A72864001B28BC /* ImageBorderMenuViewController.h */,
 				C4229FAE18A72864001B28BC /* ImageBorderMenuViewController.m */,
-				C4229FB018A76F65001B28BC /* DropShadowColorMenuViewController.h */,
-				C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */,
 			);
 			name = MenuViewControllers;
 			sourceTree = "<group>";

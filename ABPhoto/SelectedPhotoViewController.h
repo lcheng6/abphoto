@@ -12,9 +12,10 @@
 @protocol OverlayParameterModificationDelegate <NSObject>
 @required
 -(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex;
--(void) modifyOverlayColorParameter:(CGColorRef) color;
+-(void) modifyOverlayColorParameter:(UIColor*) color;
 -(void) modifyOverlayOpacityParameter:(float) alpha;
 -(void) modifyOverlayDropShadowParameter:(CGSize) dropShadowParam shadowOpacity:(CGFloat) dropShadowBlur;
+-(void) modifyOverlayDropShadowColor:(UIColor*) shadowColor;
 
 @end
 
@@ -32,6 +33,7 @@ typedef struct {
     CGSize dropShadowOffset;
     CGFloat dropShadowBlurRadius;
     float dropShadowAlpha;
+    CGColorRef dropShadowColor;
 } OverlayParameter;
 
 typedef struct {

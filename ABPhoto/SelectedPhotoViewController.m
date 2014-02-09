@@ -13,6 +13,7 @@
 #import "BaseImageFilterMenuViewController.h"
 #import "OpacityMenuViewController.h"
 #import "DropShadowMenuViewController.h"
+#import "DropShadowColorMenuViewController.h"
 
 
 @interface SelectedPhotoViewController ()
@@ -38,6 +39,7 @@
     BaseImageFilterMenuViewController * baseImageFilterMenuController;
     OpacityMenuViewController * opacityMenuController;
     DropShadowMenuViewController * dropShadowMenuController;
+    DropShadowColorMenuViewController * dropShadowColorMenuController;
     
     
     NSMutableArray * _menuControllerOffsetsInX;
@@ -150,22 +152,37 @@
     xOffset += dropShadowMenuFrame.size.width;
     [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
     
+    CGRect dropShadowColorMenuFrame;
+    dropShadowColorMenuFrame.size = [DropShadowColorMenuViewController recommendedSize];
+    dropShadowColorMenuFrame.origin.x = xOffset;
+    dropShadowColorMenuFrame.origin.y = 0;
+    dropShadowColorMenuController = [[DropShadowColorMenuViewController alloc] init];
+    dropShadowColorMenuController.delegate = self;
+    dropShadowColorMenuController.view.frame = dropShadowColorMenuFrame;
+    xOffset += dropShadowColorMenuFrame.size.width;
+    [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
+    
     if (logoImage == nil) {
         logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
     }
     [opacityMenuController setLogoImage:logoImage];
     [dropShadowMenuController setLogoImage:logoImage];
+    [dropShadowColorMenuController setShadowParam:CGSizeMake(0.0f, 0.0f) blur:0];
+    [dropShadowColorMenuController setLogoImage:logoImage];
+    
     [scrollMenuView addSubview:baseImageFilterMenuController.view];
     [scrollMenuView addSubview:opacityMenuController.view];
     [scrollMenuView addSubview:dropShadowMenuController.view];
+    [scrollMenuView addSubview:dropShadowColorMenuController.view];
+    
     [scrollMenuView setScrollEnabled:YES];
     [scrollMenuView setShowsHorizontalScrollIndicator:NO];
-    [pageControl setNumberOfPages:3];
+    [pageControl setNumberOfPages:4];
     //[scrollMenuView setPagingEnabled:YES];
     
     CGSize totalSize;
     totalSize.height = baseImageFilterFrame.size.height;
-    totalSize.width = baseImageFilterFrame.size.width + opacityMenuFrame.size.width + dropShadowMenuFrame.size.width;
+    totalSize.width = baseImageFilterFrame.size.width + opacityMenuFrame.size.width + dropShadowMenuFrame.size.width + dropShadowColorMenuFrame.size.width;
     [scrollMenuView setContentSize:totalSize];
     
     [pageControl addTarget:self
@@ -532,6 +549,10 @@
 
 - (void) overlayParamChanged {
     overlayImageView.alpha = overlayParameter.alpha;
+    overlayImageView.layer.shadowColor = overlayParameter.dropShadowColor;
+    overlayImageView.layer.shadowOffset = overlayParameter.dropShadowOffset;
+    overlayImageView.layer.shadowRadius = overlayParameter.dropShadowBlurRadius;
+    overlayImageView.layer.shadowOpacity = overlayParameter.dropShadowAlpha;
 }
 
 - (void) baseImageParamChanged {
@@ -539,22 +560,15 @@
     baseImageView.image = filteredBaseImage;
 }
 
-- (void) overlayDropShadowParamChanged {
-    
-    overlayImageView.layer.shadowColor = [[UIColor redColor] CGColor];
-    overlayImageView.layer.shadowOffset = overlayParameter.dropShadowOffset;
-    overlayImageView.layer.shadowRadius = overlayParameter.dropShadowBlurRadius;
-    overlayImageView.layer.shadowOpacity = overlayParameter.dropShadowAlpha;
-}
 
 -(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex
 {
     baseImageParameter.filterType = (UIImageFilterType) overlaySelectionIndex;
     [self baseImageParamChanged];
 }
--(void) modifyOverlayColorParameter:(CGColorRef) color
+-(void) modifyOverlayColorParameter:(UIColor*) color
 {
-    
+    overlayParameter.overlayColor = [color CGColor];
 }
 -(void) modifyOverlayOpacityParameter:(float) alpha
 {
@@ -566,7 +580,13 @@
     overlayParameter.dropShadowOffset = dropShadowParam;
     overlayParameter.dropShadowBlurRadius = dropShadowBlur;
     overlayParameter.dropShadowAlpha = 1.0f;
-    [self overlayDropShadowParamChanged];
+    [self overlayParamChanged];
+}
+
+-(void) modifyOverlayDropShadowColor:(UIColor *)shadowColor
+{
+    overlayParameter.dropShadowColor = [shadowColor CGColor];
+    [self overlayParamChanged];
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView

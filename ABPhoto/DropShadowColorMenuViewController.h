@@ -13,8 +13,10 @@
 {
     
 }
+- (void) setLogoImage:(UIImage *) logoImage;
+- (void) setShadowParam:(CGSize) offset blur:(CGFloat)blur;
 
 - (UIColor * ) getShadowColor;
 @property(nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
-+ (CGSize) recommededSize;
++ (CGSize) recommendedSize;
 @end

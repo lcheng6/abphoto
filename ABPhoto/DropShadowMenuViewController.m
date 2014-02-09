@@ -11,7 +11,6 @@
 @interface DropShadowMenuViewController ()
 {
     UITapGestureRecognizer * tapGestureRecognizer;
-    float _logoOpacity;
     int _selectedIconIndex;
     UIImage * _logoImage;
     UILabel * _title;
@@ -24,6 +23,7 @@
 @property (nonatomic, strong) NSMutableArray * shadowIconViews;
 @end
 
+static int numIcons = 7;
 @implementation DropShadowMenuViewController
 @synthesize shadowIcons;
 @synthesize shadowIconViews;
@@ -33,7 +33,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _logoOpacity = 1.0f;
     _selectedIconIndex = 0;
     
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToShadowSelection:)];
@@ -54,23 +53,28 @@
     _shadowOffsets = [NSMutableArray array];
     
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)]];
+    
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)]];
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 0.0f)]];
-    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(3.0f, 3.0f)]];
+    
+    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 4.0f)]];
+    [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(0.0f, 5.0f)]];
+    
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(4.0f, 4.0f)]];
     [_shadowOffsets addObject:[NSValue valueWithCGSize:CGSizeMake(5.0f, 5.0f)]];
     
     _shadowBlurValues = [NSMutableArray array];
     [_shadowBlurValues addObject:[NSNumber numberWithFloat:0.0f]];
-    [_shadowBlurValues addObject:[NSNumber numberWithFloat:3.0f]];
-    [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.0f]];
-    [_shadowBlurValues addObject:[NSNumber numberWithFloat:3.0f]];
+    
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:3.5f]];
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.5f]];
+    
     [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.0f]];
     [_shadowBlurValues addObject:[NSNumber numberWithFloat:5.0f]];
     
-}
-- (void) setOpacityOfLogoImage:(float)logoOpacity {
-    _logoOpacity = logoOpacity;
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:4.0f]];
+    [_shadowBlurValues addObject:[NSNumber numberWithFloat:5.0f]];
+    
 }
 
 - (void) setLogoImage:(UIImage *)logoImage {
@@ -87,7 +91,7 @@
     float heightScale = iconSize.height / _logoImage.size.height;
     
     shadowIcons = [NSMutableArray array];
-    for (int i=0; i< 6; i++) {
+    for (int i=0; i< [_shadowOffsets count]; i++) {
         UIGraphicsBeginImageContext(iconSize);
         CGContextRef context = UIGraphicsGetCurrentContext();
         UIImage * newIcon= nil;
@@ -100,7 +104,9 @@
         [roundSquare fill];
         CGContextScaleCTM(context, widthScale, heightScale);
         
-        CGContextSetShadowWithColor(context, shadowOffset, blurRadius, [[UIColor redColor] CGColor]);
+        if (i != 0) {
+            CGContextSetShadowWithColor(context, shadowOffset, blurRadius, [[UIColor redColor] CGColor]);
+        }
         [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height)];
         
         //CGContextDrawImage(context, roundSquareRect, logoImage.CGImage);
@@ -188,7 +194,9 @@
     CGSize shadowOffset = [[_shadowOffsets objectAtIndex:_selectedIconIndex] CGSizeValue];
     CGFloat blurRadius = [[_shadowBlurValues objectAtIndex:_selectedIconIndex] floatValue];
     CGContextScaleCTM(context, widthScale, heightScale);
-    CGContextSetShadowWithColor(context, shadowOffset, blurRadius, [[UIColor redColor] CGColor]);
+    if(_selectedIconIndex != 0) {
+        CGContextSetShadowWithColor(context, shadowOffset, blurRadius, [[UIColor redColor] CGColor]);
+    }
     [_logoImage drawInRect:CGRectMake(0, 0, _logoImage.size.width, _logoImage.size.height)];
     
     iconWithSelectedDropShadow = UIGraphicsGetImageFromCurrentImageContext();
@@ -241,7 +249,9 @@
     CGSize shadowOffset = [[_shadowOffsets objectAtIndex:_selectedIconIndex] CGSizeValue];
     CGFloat blurRadius = [[_shadowBlurValues objectAtIndex:_selectedIconIndex] floatValue];
     CGContextScaleCTM(context, widthScale, heightScale);
-    CGContextSetShadowWithColor(context, shadowOffset, blurRadius, [[UIColor redColor] CGColor]);
+    if (_selectedIconIndex != 0) {
+        CGContextSetShadowWithColor(context, shadowOffset, blurRadius, [[UIColor redColor] CGColor]);
+    }
     [_logoImage drawInRect:CGRectMake(0, 0, _logoImage.size.width, _logoImage.size.height)];
     
     iconWithSelectedDropShadow = UIGraphicsGetImageFromCurrentImageContext();
@@ -265,7 +275,7 @@
     
     int regionIndex = (int)tapPoint.x / (65+10);
     int regionOffset = (int)tapPoint.x % (int)(65 + 10);
-    if (regionIndex > 5) {
+    if (regionIndex > numIcons) {
         return;
     }else {
         if(regionOffset <10) {
@@ -284,7 +294,7 @@
     CGSize size;
     size.height = 80;
     //5 images and 6 gaps of 10 units between each
-    size.width = 65 * 6 + 10 * 6;
+    size.width = 65 * numIcons + 10 * numIcons;
     
     return size;
 }
