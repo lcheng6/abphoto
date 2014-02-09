@@ -14,7 +14,7 @@
 -(void) modifyOverlayFilterIndexParameter:(int)overlaySelectionIndex;
 -(void) modifyOverlayColorParameter:(CGColorRef) color;
 -(void) modifyOverlayOpacityParameter:(float) alpha;
--(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam;
+-(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam shadowOpacity:(float) shadowAlpha;
 
 @end
 
@@ -30,6 +30,7 @@ typedef struct {
     CGColorRef color;
     float alpha;
     CGPoint dropShadowParam;
+    float shadowAlpha;
 } OverlayParameter;
 
 typedef struct {

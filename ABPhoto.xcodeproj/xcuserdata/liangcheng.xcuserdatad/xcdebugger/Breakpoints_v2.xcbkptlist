@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413212932.874283"
+            timestampString = "413619416.455212"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "-respondToPinchRotateAndPan:"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413209296.600873"
+            timestampString = "413617075.980991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413212932.874283"
+            timestampString = "413618511.871843"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-setupMenusInScrollView"
             landmarkType = "5">
          </BreakpointContent>
@@ -169,13 +169,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413517416.607542"
+            filePath = "ABPhoto/OpacityMenuViewController.m"
+            timestampString = "413617075.980991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
-            landmarkName = "-baseImageParamChanged"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-setLogoImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,12 +185,58 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413517416.607542"
+            filePath = "ABPhoto/DropShadowMenuViewController.m"
+            timestampString = "413617510.518519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-setLogoImage:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DropShadowMenuViewController setLogoImage:]"
+                  moduleName = "ABPhoto"
+                  urlString = "file:///Users/liangcheng/Documents/IOS%20Development/ABPhoto/ABPhoto/DropShadowMenuViewController.m"
+                  timestampString = "413617415.932174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DropShadowMenuViewController setLogoImage:]"
+                  moduleName = "ABPhoto"
+                  urlString = "file:///Users/liangcheng/Documents/IOS%20Development/ABPhoto/ABPhoto/DropShadowMenuViewController.m"
+                  timestampString = "413617415.932415"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "704">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ABPhoto/SelectedPhotoViewController.m"
+            timestampString = "413619416.455212"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "551"
+            endingLineNumber = "551"
             landmarkName = "-scrollViewDidScroll:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,45 +248,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413517416.607542"
+            timestampString = "413620115.887439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "476"
-            endingLineNumber = "476"
-            landmarkName = "-scaleAndRotateLogoContext:"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
+            landmarkName = "-pageControlTapped:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "413517416.607542"
+            filePath = "ABPhoto/SelectedPhotoViewController.h"
+            timestampString = "413625090.764173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
-            landmarkName = "-scaleAndRotateLogoContext:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ABPhoto/OpacityMenuViewController.m"
-            timestampString = "413607334.584389"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-setLogoImage:"
-            landmarkType = "5">
+            startingLineNumber = "22"
+            endingLineNumber = "22">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

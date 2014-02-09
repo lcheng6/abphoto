@@ -64,12 +64,6 @@
         UIGraphicsBeginImageContext(iconSize);
         CGContextRef context = UIGraphicsGetCurrentContext();
         UIImage * newIcon= nil;
-        //context = UIGraphicsGetCurrentContext();
-        //CGContextSetBlendMode(context, kCGBlendModeLuminosity);
-        //CGcontextDrawImage(context, rect, newIcon.CGImage)
-        //CGContextSetFillColorWithColor(context, (__bridge CGColorRef)([UIColor blackColor]));
-        //CGContextFillRect(context, logRect);
-        //CGContextSetBlendMode(context, kCGBlendModeLuminosity);
         
         UIBezierPath * roundSquare = [UIBezierPath bezierPathWithRoundedRect:roundSquareRect cornerRadius:20.0f];
         [[UIColor whiteColor] setFill];
@@ -187,12 +181,7 @@
     UIBezierPath * path = [UIBezierPath bezierPathWithRoundedRect:logoRect cornerRadius:2.0f];
     path.lineWidth = 4.0f;
     [[[[[UIApplication sharedApplication] delegate] window] tintColor] setStroke];
-    //[[[[[[UIApplication sharedApplication] delegate] window] tintColor] colorWithAlphaComponent:.2f] setFill];
-    //CGPathDrawingMode mode = kCGPathFillStroke;
     [path stroke];
-    //[path fill];
-    //CGContextClosePath(context);
-    //CGContextDrawPath(context, mode);
     
     //draw rounded white square
     UIBezierPath * roundSquare = [UIBezierPath bezierPathWithRoundedRect:roundSquareRect cornerRadius:20.0f];

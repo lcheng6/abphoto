@@ -16,7 +16,7 @@
 
 -(void) setLogoImage:(UIImage *) logoImage;
 -(float) getSelectedOpacity;
-@property (nonatomic, assign) id<OverlayParameterModificationDelegate> delegate;
+@property (nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
 +(CGSize) recommendedSize;
 
 @end

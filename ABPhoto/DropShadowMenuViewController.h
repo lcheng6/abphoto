@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SelectedPhotoViewController.h"
 
 @interface DropShadowMenuViewController : UIViewController
+{
+    
+}
+
+- (void) setLogoImage:(UIImage*) logoImage;
+- (void) setOpacityOfLogoImage:(float) logoOpacity;
+- (float) getShadowOpacity;
+- (CGPoint) getShadowOffset;
+
+@property(nonatomic, weak) id<OverlayParameterModificationDelegate> delegate;
++ (CGSize) recommendedSize;
 
 @end

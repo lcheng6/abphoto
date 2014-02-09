@@ -12,6 +12,7 @@
 #import "SharePhotoViewController.h"
 #import "BaseImageFilterMenuViewController.h"
 #import "OpacityMenuViewController.h"
+#import "DropShadowMenuViewController.h"
 
 
 @interface SelectedPhotoViewController ()
@@ -36,6 +37,10 @@
     
     BaseImageFilterMenuViewController * baseImageFilterMenuController;
     OpacityMenuViewController * opacityMenuController;
+    DropShadowMenuViewController * dropShadowMenuController;
+    
+    
+    NSMutableArray * _menuControllerOffsetsInX;
 }
 
 @end
@@ -103,7 +108,11 @@
     int xOffset = 0;
     CGRect baseImageFilterFrame;
     
+    _menuControllerOffsetsInX = [NSMutableArray array];
+    
     scrollMenuView.delegate = self;
+    
+    [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
     
     baseImageFilterFrame.size = [BaseImageFilterMenuViewController recommendedSize];
     baseImageFilterFrame.origin.x = 0;
@@ -117,6 +126,7 @@
     overlayParameter.dropShadowParam = CGPointMake(5.0f, 5.0f);
     
     xOffset += baseImageFilterFrame.size.width;
+    [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
     
     CGRect opacityMenuFrame;
     opacityMenuFrame.size = [OpacityMenuViewController recommendedSize];
@@ -126,23 +136,39 @@
     opacityMenuController.delegate = self;
     opacityMenuController.view.frame = opacityMenuFrame;
     xOffset += opacityMenuFrame.size.width;
+    [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
+    
+    CGRect dropShadowMenuFrame;
+    dropShadowMenuFrame.size = [DropShadowMenuViewController recommendedSize];
+    dropShadowMenuFrame.origin.x = xOffset;
+    dropShadowMenuFrame.origin.y = 0;
+    dropShadowMenuController = [[DropShadowMenuViewController alloc] init];
+    dropShadowMenuController.delegate = self;
+    dropShadowMenuController.view.frame = dropShadowMenuFrame;
+    xOffset += dropShadowMenuFrame.size.width;
+    [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
     
     if (logoImage == nil) {
         logoImage = [UIImage imageNamed:@"AmericanBoxingOverlay.png"];
     }
     [opacityMenuController setLogoImage:logoImage];
+    [dropShadowMenuController setLogoImage:logoImage];
     [scrollMenuView addSubview:baseImageFilterMenuController.view];
     [scrollMenuView addSubview:opacityMenuController.view];
+    [scrollMenuView addSubview:dropShadowMenuController.view];
     [scrollMenuView setScrollEnabled:YES];
     [scrollMenuView setShowsHorizontalScrollIndicator:NO];
-    [pageControl setNumberOfPages:2];
+    [pageControl setNumberOfPages:3];
     //[scrollMenuView setPagingEnabled:YES];
     
     CGSize totalSize;
     totalSize.height = baseImageFilterFrame.size.height;
-    totalSize.width = baseImageFilterFrame.size.width + opacityMenuFrame.size.width;
+    totalSize.width = baseImageFilterFrame.size.width + opacityMenuFrame.size.width + dropShadowMenuFrame.size.width;
     [scrollMenuView setContentSize:totalSize];
     
+    [pageControl addTarget:self
+                    action:@selector(pageControlTapped:)
+          forControlEvents:UIControlEventValueChanged];
 
 }
 - (void)respondToPan:(UIPanGestureRecognizer *) recognizer {
@@ -509,7 +535,7 @@
     overlayParameter.alpha = alpha;
     [self overlayParamChanged];
 }
--(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam
+-(void) modifyOverlayDropShadowParameter:(CGPoint) dropShadowParam shadowOpacity:(float)shadowAlpha
 {
     
 }
@@ -518,12 +544,26 @@
 {
     CGPoint offset;
     offset = scrollView.contentOffset;
-    if (offset.x < [BaseImageFilterMenuViewController recommendedSize].width) {
-        [pageControl setCurrentPage:0];
+    int pageIndex;
+    for (pageIndex =0; pageIndex < [_menuControllerOffsetsInX count]; pageIndex++) {
+        NSNumber * offsetNum = [_menuControllerOffsetsInX objectAtIndex:pageIndex];
+        if (offset.x <= [offsetNum floatValue]) {
+            break;
+        }
     }
-    if(offset.x >= [BaseImageFilterMenuViewController recommendedSize].width) {
-        [pageControl setCurrentPage:1];
-    }
+    pageIndex = pageIndex - 1;
+    [pageControl setCurrentPage: pageIndex];
+}
+
+- (void) pageControlTapped:(UIPageControl *) ctrl {
+    
+    int pageIndex = [pageControl currentPage];
+    NSNumber * pageOffset = [_menuControllerOffsetsInX objectAtIndex:pageIndex];
+    CGFloat pageOffsetInX = [pageOffset floatValue];
+    CGPoint pageOffsetPoint = CGPointMake(pageOffsetInX, 0);
+    NSLog(@"pageIndex: %d Offset %@", pageIndex, NSStringFromCGPoint(pageOffsetPoint));
+    [scrollMenuView setContentOffset:pageOffsetPoint];
+    [pageControl setCurrentPage:pageIndex];
 }
 
 @end
