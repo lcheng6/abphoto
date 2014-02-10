@@ -77,6 +77,11 @@ static int numIcons = 7;
     
 }
 
+- (void) setShadowColor:(UIColor *)shadowColor
+{
+    //TODO: need to fix this
+}
+
 - (void) setLogoImage:(UIImage *)logoImage {
     _logoImage = logoImage;
     

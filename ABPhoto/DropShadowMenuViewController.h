@@ -15,6 +15,7 @@
 }
 
 - (void) setLogoImage:(UIImage*) logoImage;
+- (void) setShadowColor: (UIColor*) shadowColor;
 - (float) getShadowRadius;
 - (CGSize) getShadowOffset;
 

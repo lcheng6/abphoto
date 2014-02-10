@@ -123,11 +123,12 @@
     baseImageFilterMenuController.delegate = self;
     baseImageFilterMenuController.view.frame = baseImageFilterFrame;
     overlayParameter.overlaySelectionIndex = 0;
-    overlayParameter.overlayColor = [[UIColor grayColor] CGColor];
+    overlayParameter.overlayColor = [[UIColor redColor] CGColor];
     overlayParameter.alpha = 1.0f;
     overlayParameter.dropShadowOffset = CGSizeMake(0.0f, 0.0f);
     overlayParameter.dropShadowBlurRadius = 0.0f;
     overlayParameter.dropShadowAlpha = 1.0f;
+    overlayParameter.dropShadowColor = [[UIColor redColor] CGColor];
     
     xOffset += baseImageFilterFrame.size.width;
     [_menuControllerOffsetsInX addObject:[NSNumber numberWithFloat:xOffset]];
@@ -507,7 +508,7 @@
     
     CGFloat adjustedBlurRadius = overlayParameter.dropShadowBlurRadius;
     adjustedBlurRadius *= (logoImage.size.width/144.0f * 2.0f);
-    CGContextSetShadowWithColor(context, adjustedOffset, adjustedBlurRadius, [[UIColor redColor] CGColor]);
+    CGContextSetShadowWithColor(context, adjustedOffset, adjustedBlurRadius, overlayParameter.dropShadowColor);
     [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height) blendMode:kCGBlendModeNormal alpha:overlayParameter.alpha];
     CGContextRestoreGState(context);
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -553,6 +554,7 @@
     overlayImageView.layer.shadowOffset = overlayParameter.dropShadowOffset;
     overlayImageView.layer.shadowRadius = overlayParameter.dropShadowBlurRadius;
     overlayImageView.layer.shadowOpacity = overlayParameter.dropShadowAlpha;
+    [dropShadowMenuController setShadowColor:(__bridge UIColor *)(overlayParameter.dropShadowColor)];
 }
 
 - (void) baseImageParamChanged {
@@ -580,6 +582,9 @@
     overlayParameter.dropShadowOffset = dropShadowParam;
     overlayParameter.dropShadowBlurRadius = dropShadowBlur;
     overlayParameter.dropShadowAlpha = 1.0f;
+    if (dropShadowColorMenuController != nil) {
+        [dropShadowColorMenuController setShadowParam:dropShadowParam blur:dropShadowBlur];
+    }
     [self overlayParamChanged];
 }
 

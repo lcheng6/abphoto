@@ -46,7 +46,7 @@ static int numIcons = 7;
     
     tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToShadowColorSelection:)];
     tapGestureRecognizer.numberOfTapsRequired = 1;
-    tapGestureRecognizer.numberOfTouchesRequired =1;
+    tapGestureRecognizer.numberOfTouchesRequired = 1;
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
     [self buildColorArray];
@@ -102,10 +102,9 @@ static int numIcons = 7;
         CGContextSetShadowWithColor(context, _shadowOffset, _shadowBlur, [shadowColor CGColor]);
         [logoImage drawInRect:CGRectMake(0, 0, logoImage.size.width, logoImage.size.height)];
         
-        //CGContextDrawImage(context, roundSquareRect, logoImage.CGImage);
         newIcon = UIGraphicsGetImageFromCurrentImageContext();
-        [shadowColorIcons addObject:newIcon];
         UIGraphicsEndImageContext();
+        [shadowColorIcons addObject:newIcon];
     }
     
     shadowColorIconViews = [NSMutableArray array];
@@ -127,7 +126,6 @@ static int numIcons = 7;
         [self.view addSubview:iconView];
     }
     
-    _selectedIconIndex = 0;
     [self drawSquareAroundSelectedShadowColorIcon];
     
     
@@ -267,10 +265,55 @@ static int numIcons = 7;
     }
 }
 
+- (void) redrawIconsWithShadow
+{
+    CGSize iconSize;
+    CGRect roundSquareRect;
+    iconSize.width = 65*2;
+    iconSize.height = 65*2;
+    roundSquareRect.size = CGSizeMake(60*2, 60*2);
+    roundSquareRect.origin = CGPointMake(5, 5);
+    
+    float widthScale = iconSize.width / _logoImage.size.width;
+    float heightScale = iconSize.height / _logoImage.size.height;
+    
+    for (int i=0; i< [_shadowColors count]; i++) {
+        UIGraphicsBeginImageContext(iconSize);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        UIImage * newIcon= nil;
+        
+        UIBezierPath * roundSquare = [UIBezierPath bezierPathWithRoundedRect:roundSquareRect cornerRadius:20.0f];
+        [[UIColor whiteColor] setFill];
+        [roundSquare fill];
+        CGContextScaleCTM(context, widthScale, heightScale);
+        
+        UIColor *shadowColor = [_shadowColors objectAtIndex:i];
+        CGContextSetShadowWithColor(context, _shadowOffset, _shadowBlur, [shadowColor CGColor]);
+        [_logoImage drawInRect:CGRectMake(0, 0, _logoImage.size.width, _logoImage.size.height)];
+        
+        newIcon = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [shadowColorIcons replaceObjectAtIndex:i withObject:newIcon];
+    }
+    
+    
+    for (int index = 0; index < [shadowColorIconViews count]; index++) {
+        UIImageView * iconView = [shadowColorIconViews objectAtIndex:index];
+        UIImage * icon = [shadowColorIcons objectAtIndex:index];
+        iconView.image = icon;
+    }
+    
+    [self drawSquareAroundSelectedShadowColorIcon];
+}
 - (void) setShadowParam:(CGSize)offset blur:(CGFloat)blur
 {
     _shadowOffset = offset;
     _shadowBlur = blur;
+    
+    if(_logoImage != nil) {
+        //[self setLogoImage:_logoImage];
+        [self redrawIconsWithShadow];
+    }
 }
 
 + (CGSize) recommendedSize
