@@ -228,6 +228,7 @@
             break;
             
         case UIGestureRecognizerStateChanged: {
+            //NSLog(@"Number of recognizers: %d", _activeRecognizers.count);
             for (UIGestureRecognizer *recognizer in _activeRecognizers)
                 [self applyRecognizer:recognizer];
             //imageView.transform = logoTransform;
@@ -514,7 +515,28 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    return newImage;
+    UIImageOrientation newOrientation;
+    switch (baseImageOriginalOrientation) {
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            newOrientation = UIImageOrientationLeft;
+            break;
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            newOrientation = UIImageOrientationUp;
+            break;
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            newOrientation = UIImageOrientationRight;
+            break;
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            newOrientation = UIImageOrientationLeft;
+            break;
+    }
+    UIImage * rotatedImage = [UIImage imageWithCGImage:[newImage CGImage] scale:1.0 orientation:newOrientation];
+    
+    return rotatedImage;
 }
 
 - (void) scaleAndRotateLogoContext:(CGContextRef) context {
@@ -544,7 +566,7 @@
     if ([[segue identifier] isEqualToString:@"ToShare"]) {
         SharePhotoViewController *sharePhotoVC = [segue destinationViewController];
         
-        sharePhotoVC.photoForShare = [self generateCombinedImage];
+        sharePhotoVC.originalPhotoForShare = [self generateCombinedImage];
     }
 }
 

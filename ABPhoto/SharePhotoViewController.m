@@ -7,15 +7,16 @@
 //
 
 #import "SharePhotoViewController.h"
+#import <Social/Social.h>
 
 @interface SharePhotoViewController ()
 {
-    UIActionSheet * shareSheet;
+    UIActionSheet * actionSheet;
 }
 @end
 
 @implementation SharePhotoViewController
-@synthesize photoForShare;
+@synthesize originalPhotoForShare;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    photoForShareImageView.image = photoForShare;
+    photoForShareImageView.image = originalPhotoForShare;
     
 }
 
@@ -40,9 +41,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (IBAction)shareButtonPressed:(id)sender {
-    shareSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: @"Fuck", @"Ass", @"Damn it", nil];
-    //shareSheet.visible = YES;
-    [shareSheet showFromBarButtonItem:sharePhotoButton animated:YES];
+    NSLog(@"Share Button Pressed");
+    NSString *shareTest = @"@American Boxing and Fitness";
+    UIImage * imageToShare = originalPhotoForShare;
+    NSMutableArray * shareArray = [[NSMutableArray alloc] initWithObjects:shareTest, imageToShare, nil];
+    
+    UIActivityViewController * activityController = [[UIActivityViewController alloc] initWithActivityItems:shareArray applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
 }
 @end
