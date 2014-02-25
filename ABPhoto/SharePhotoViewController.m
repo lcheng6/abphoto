@@ -13,7 +13,7 @@
 @interface SharePhotoViewController ()
 {
     UIActionSheet * actionSheet;
-    FBLoginView * fbLoginViewInActionSheet;
+    Boolean fbLoggedIn;
 }
 @end
 
@@ -36,6 +36,8 @@
     photoForShareImageView.image = originalPhotoForShare;
     
     [self setupShareSheet];
+    [FBLoginView class];
+    fbLoggedIn = false;
     
 }
 
@@ -44,6 +46,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+    // If the user is logged in, they can post to Facebook using API calls, so we show the buttons
+    fbLoggedIn = TRUE;
+}
+
+// Implement the loginViewShowingLoggedOutUser: delegate method to modify your app's UI for a logged-out user experience
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    // If the user is NOT logged in, they can't post to Facebook using API calls, so we show the button
+    fbLoggedIn = FALSE;
+}
+
 
 /*
 - (IBAction)shareButtonPressed:(id)sender {
@@ -58,7 +73,7 @@
  */
 
 - (void) setupShareSheet{
-    actionSheet = [[UIActionSheet alloc] init];
+    actionSheet = [[UIActionSheet alloc] initWithTitle:@"Sharing" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles: nil];
     
 }
 - (IBAction)shareButtonPressed:(id)sender {
@@ -66,7 +81,24 @@
     NSLog(@"Share Button Pressed");
     
     if (actionSheet != nil) {
-        [actionSheet showFromBarButtonItem:sharePhotoButton animated:YES];
+        [actionSheet showInView:self.view];
     }
 }
+
+- (IBAction)updownMirrorButtonPressed:(id)sender {
+}
+
+- (IBAction)leftrightMirrorButtonPressed:(id)sender {
+}
+
+- (IBAction)leftRotateButtonPressed:(id)sender {
+}
+
+- (IBAction)rightRotateButtonPressed:(id)sender {
+}
+
+- (IBAction)leftrightMirrorbuttonPressed:(id)sender {
+}
+
+
 @end

@@ -17,5 +17,11 @@
 }
 @property (nonatomic, strong) UIImage * originalPhotoForShare;
 - (IBAction)shareButtonPressed:(id)sender;
+- (IBAction)updownMirrorButtonPressed:(id)sender;
+- (IBAction)leftrightMirrorButtonPressed:(id)sender;
+- (IBAction)leftRotateButtonPressed:(id)sender;
+- (IBAction)rightRotateButtonPressed:(id)sender;
+
+
 
 @end
