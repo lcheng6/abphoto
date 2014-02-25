@@ -6,12 +6,14 @@
 //  Copyright (c) 2014 Liang Cheng. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
+#import <FacebookSDK/FBLoginView.h>
 #import "SharePhotoViewController.h"
-#import <Social/Social.h>
 
 @interface SharePhotoViewController ()
 {
     UIActionSheet * actionSheet;
+    FBLoginView * fbLoginViewInActionSheet;
 }
 @end
 
@@ -33,6 +35,8 @@
 	// Do any additional setup after loading the view.
     photoForShareImageView.image = originalPhotoForShare;
     
+    [self setupShareSheet];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,7 +45,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
 - (IBAction)shareButtonPressed:(id)sender {
     NSLog(@"Share Button Pressed");
     NSString *shareTest = @"@American Boxing and Fitness";
@@ -50,5 +54,19 @@
     
     UIActivityViewController * activityController = [[UIActivityViewController alloc] initWithActivityItems:shareArray applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];
+}
+ */
+
+- (void) setupShareSheet{
+    actionSheet = [UIActionSheet alloc];
+    
+}
+- (IBAction)shareButtonPressed:(id)sender {
+    //In this function, need to use presentOSIntegratedShareDialogModallyFrom with FBDialog
+    NSLog(@"Share Button Pressed");
+    
+    if (actionSheet != nil) {
+        [actionSheet showFromBarButtonItem:sharePhotoButton animated:YES];
+    }
 }
 @end

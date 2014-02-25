@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ABPhoto/SharePhotoViewController.m"
-            timestampString = "414975248.45734"
+            timestampString = "415021242.025597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -222,22 +222,6 @@
             startingLineNumber = "615"
             endingLineNumber = "615"
             landmarkName = "-modifyOverlayDropShadowColor:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ABPhoto/SelectedPhotoViewController.m"
-            timestampString = "414981239.625812"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "537"
-            endingLineNumber = "537"
-            landmarkName = "-generateCombinedImage"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
