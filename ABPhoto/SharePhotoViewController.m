@@ -58,7 +58,7 @@
  */
 
 - (void) setupShareSheet{
-    actionSheet = [UIActionSheet alloc];
+    actionSheet = [[UIActionSheet alloc] init];
     
 }
 - (IBAction)shareButtonPressed:(id)sender {

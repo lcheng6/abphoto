@@ -11,6 +11,8 @@
 		C4229FB218A76F65001B28BC /* DropShadowColorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */; };
 		C43D38A318BBFB50004E8A01 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43D38A218BBFB50004E8A01 /* Social.framework */; };
 		C43D38A518BCBA26004E8A01 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C43D38A418BCBA26004E8A01 /* FacebookSDK.framework */; };
+		C43D38AB18BCBB68004E8A01 /* ShareActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = C43D38A918BCBB68004E8A01 /* ShareActionSheet.m */; };
+		C43D38AC18BCBB68004E8A01 /* ShareActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43D38AA18BCBB68004E8A01 /* ShareActionSheet.xib */; };
 		C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */; };
 		C48A408D18A00D6000F69609 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48A408C18A00D6000F69609 /* AssetsLibrary.framework */; };
 		C48A409018A0125400F69609 /* DropShadowMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A408F18A0125400F69609 /* DropShadowMenuViewController.m */; };
@@ -63,6 +65,9 @@
 		C4229FB118A76F65001B28BC /* DropShadowColorMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropShadowColorMenuViewController.m; sourceTree = "<group>"; };
 		C43D38A218BBFB50004E8A01 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		C43D38A418BCBA26004E8A01 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		C43D38A818BCBB68004E8A01 /* ShareActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionSheet.h; sourceTree = "<group>"; };
+		C43D38A918BCBB68004E8A01 /* ShareActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionSheet.m; sourceTree = "<group>"; };
+		C43D38AA18BCBB68004E8A01 /* ShareActionSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareActionSheet.xib; sourceTree = "<group>"; };
 		C460310D189D2CB30057F529 /* OverlaySelectionMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlaySelectionMenuViewController.h; sourceTree = "<group>"; };
 		C460310E189D2CB30057F529 /* OverlaySelectionMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlaySelectionMenuViewController.m; sourceTree = "<group>"; };
 		C48A408C18A00D6000F69609 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -142,6 +147,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C43D38A718BCBB4A004E8A01 /* FBDialogsInActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				C43D38A818BCBB68004E8A01 /* ShareActionSheet.h */,
+				C43D38A918BCBB68004E8A01 /* ShareActionSheet.m */,
+				C43D38AA18BCBB68004E8A01 /* ShareActionSheet.xib */,
+			);
+			name = FBDialogsInActionSheet;
+			sourceTree = "<group>";
+		};
 		C48A409718A0651200F69609 /* ImageFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +203,7 @@
 		C4CC8A721897CE4A001F7424 /* ABPhoto */ = {
 			isa = PBXGroup;
 			children = (
+				C43D38A718BCBB4A004E8A01 /* FBDialogsInActionSheet */,
 				C48A409718A0651200F69609 /* ImageFilter */,
 				C4CC8AA41897CE6B001F7424 /* CameraOverlayController */,
 				C4CC8AA31897CE5A001F7424 /* MenuViewControllers */,
@@ -375,6 +391,7 @@
 				C4F2824E189856B900A7F530 /* GridForCamera@2x.png in Resources */,
 				C4CC8AA91897CE96001F7424 /* CameraOverlayViewController.xib in Resources */,
 				C4CC8A801897CE4A001F7424 /* Main.storyboard in Resources */,
+				C43D38AC18BCBB68004E8A01 /* ShareActionSheet.xib in Resources */,
 				C4F282511898586A00A7F530 /* MaskRegionForCamera.png in Resources */,
 				C4CC8AAD1897CF1F001F7424 /* AmericanBoxingLogo@2x.png in Resources */,
 			);
@@ -402,6 +419,7 @@
 				C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */,
 				C4CC8A7D1897CE4A001F7424 /* AppDelegate.m in Sources */,
 				C48A409018A0125400F69609 /* DropShadowMenuViewController.m in Sources */,
+				C43D38AB18BCBB68004E8A01 /* ShareActionSheet.m in Sources */,
 				C4CC8AA81897CE96001F7424 /* CameraOverlayViewController.m in Sources */,
 				C4CC8AB71897D2BD001F7424 /* SelectedPhotoViewController.m in Sources */,
 				C460310F189D2CB30057F529 /* OverlaySelectionMenuViewController.m in Sources */,
