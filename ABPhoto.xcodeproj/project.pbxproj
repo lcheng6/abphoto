@@ -18,6 +18,8 @@
 		C48A409618A012EA00F69609 /* OverlayColorMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409518A012EA00F69609 /* OverlayColorMenuViewController.m */; };
 		C48A409A18A0C54A00F69609 /* UIImage+Filters.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409918A0C54A00F69609 /* UIImage+Filters.m */; };
 		C48A409D18A116D900F69609 /* UIScrollView+HorizontalMenus.m in Sources */ = {isa = PBXBuildFile; fileRef = C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */; };
+		C4987C2C18C4338200214184 /* AmericanBoxing For FB Test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4987C2B18C4338200214184 /* AmericanBoxing For FB Test.jpg */; };
+		C4987C2E18C4350800214184 /* AmericanBoxing For FB Test2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4987C2D18C4350800214184 /* AmericanBoxing For FB Test2.jpg */; };
 		C4A32DCF189B818F00B28595 /* OpacityMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */; };
 		C4CC8A6D1897CE4A001F7424 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6C1897CE4A001F7424 /* Foundation.framework */; };
 		C4CC8A6F1897CE4A001F7424 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC8A6E1897CE4A001F7424 /* CoreGraphics.framework */; };
@@ -76,6 +78,8 @@
 		C48A409918A0C54A00F69609 /* UIImage+Filters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filters.m"; sourceTree = "<group>"; };
 		C48A409B18A116D900F69609 /* UIScrollView+HorizontalMenus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+HorizontalMenus.h"; sourceTree = "<group>"; };
 		C48A409C18A116D900F69609 /* UIScrollView+HorizontalMenus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+HorizontalMenus.m"; sourceTree = "<group>"; };
+		C4987C2B18C4338200214184 /* AmericanBoxing For FB Test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "AmericanBoxing For FB Test.jpg"; path = "../../../../Desktop/AmericanBoxing For FB Test.jpg"; sourceTree = "<group>"; };
+		C4987C2D18C4350800214184 /* AmericanBoxing For FB Test2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "AmericanBoxing For FB Test2.jpg"; path = "../../../../Desktop/AmericanBoxing For FB Test2.jpg"; sourceTree = "<group>"; };
 		C4A32DCD189B818F00B28595 /* OpacityMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpacityMenuViewController.h; sourceTree = "<group>"; };
 		C4A32DCE189B818F00B28595 /* OpacityMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpacityMenuViewController.m; sourceTree = "<group>"; };
 		C4CC8A691897CE4A001F7424 /* ABPhoto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ABPhoto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +277,8 @@
 		C4CC8AAA1897CECA001F7424 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C4987C2B18C4338200214184 /* AmericanBoxing For FB Test.jpg */,
+				C4987C2D18C4350800214184 /* AmericanBoxing For FB Test2.jpg */,
 				C4F282531898596300A7F530 /* ABIcons */,
 				C4F2824F1898586A00A7F530 /* MaskRegionForCamera.png */,
 				C4F282501898586A00A7F530 /* MaskRegionForCamera@2x.png */,
@@ -368,6 +374,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4CC8A851897CE4A001F7424 /* Images.xcassets in Resources */,
+				C4987C2C18C4338200214184 /* AmericanBoxing For FB Test.jpg in Resources */,
+				C4987C2E18C4350800214184 /* AmericanBoxing For FB Test2.jpg in Resources */,
 				C4CC8AAE1897CF1F001F7424 /* AmericanBoxingOverlay.png in Resources */,
 				C4F2824D189856B900A7F530 /* GridForCamera.png in Resources */,
 				C4CC8A771897CE4A001F7424 /* InfoPlist.strings in Resources */,

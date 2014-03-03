@@ -200,12 +200,11 @@ NSString * const gymTitle = @"American Boxing and Fitness";
 
             // create an Open Graph action
             id<FBOpenGraphAction> action = (id<FBOpenGraphAction>)[FBGraphObject graphObject];
-            [action setObject:object forKey:@"eat"];
+            [action setObject:object forKey:@"dish"];
             [action setPlace:place];
             //[action setImage:@"http://i.imgur.com/3qxV03c.png"];
             [action setImage:@[@{@"url": [result objectForKey:@"uri"], @"user_generated" : @"false" }]];
             
-            //[action set]
             
             // create action referencing user owned object
             [FBRequestConnection startForPostWithGraphPath:@"/me/com_liang_abphoto:eat" graphObject:action completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
