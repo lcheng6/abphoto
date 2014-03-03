@@ -84,9 +84,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="5dF-9V-dGY" userLabel="FBLoginView" customClass="FBLoginView">
-                                <rect key="frame" x="22" y="496" width="277" height="52"/>
+                                <rect key="frame" x="98" y="496" width="196" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kMb-2C-Eat" id="NOT-7h-2qn"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PXX-cg-t4n">
                                 <rect key="frame" x="44" y="458" width="30" height="30"/>
@@ -128,6 +131,11 @@
                                     <action selector="rightRotateButtonPressed:" destination="kMb-2C-Eat" eventType="touchUpInside" id="YGI-b3-IFb"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="qyy-Dw-bXs" customClass="FBProfilePictureView">
+                                <rect key="frame" x="22" y="496" width="52" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
@@ -140,6 +148,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="photoForShareImageView" destination="Qx4-Po-U2C" id="PoL-eX-5I9"/>
+                        <outlet property="profilePictureView" destination="qyy-Dw-bXs" id="hZo-D0-fpf"/>
                         <outlet property="sharePhotoButton" destination="vqg-dM-sQ2" id="XIe-Cv-bno"/>
                     </connections>
                 </viewController>

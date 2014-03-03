@@ -7,13 +7,15 @@
 //
 
 #import "AppDelegate.h"
-#import <FacebookSDK/FBSession.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //[FBProfilePictureView class];
+    //[FBLoginView class];
     return YES;
 }
 							
@@ -59,8 +61,12 @@
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    // attempt to extract a token from the url
-    return [FBSession.activeSession handleOpenURL:url];
+    /// Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    return wasHandled;
 }
 
 @end
