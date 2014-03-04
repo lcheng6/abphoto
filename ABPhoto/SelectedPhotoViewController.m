@@ -633,7 +633,7 @@
 
 - (void) pageControlTapped:(UIPageControl *) ctrl {
     
-    int pageIndex = [pageControl currentPage];
+    int pageIndex = (int)[pageControl currentPage];
     NSNumber * pageOffset = [_menuControllerOffsetsInX objectAtIndex:pageIndex];
     CGFloat pageOffsetInX = [pageOffset floatValue];
     CGPoint pageOffsetPoint = CGPointMake(pageOffsetInX, 0);

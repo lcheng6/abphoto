@@ -110,7 +110,7 @@ NSString * const gymTitle = @"American Boxing and Fitness";
 {
     NSString * linkedPage = @"";
     NSString * classTitle = @"";
-    NSLog(@"Selected Index: %d", selectionIndex);
+    NSLog(@"Selected Index: %ld", (long)selectionIndex);
     switch(selectionIndex) {
         case 0:
             linkedPage = boxingURL;
@@ -161,7 +161,7 @@ NSString * const gymTitle = @"American Boxing and Fitness";
             object[@"title"] = classTitle;
             
             // for og:type, this corresponds to the Namespace you've set for your app and the object type name
-            object[@"type"] = @"com_liang_abphoto:dish";
+            object[@"type"] = @"com_liang_abphoto:class";
             
             // for og:description
             object[@"description"] = @"Test Description, sweating and cramping";
@@ -200,14 +200,14 @@ NSString * const gymTitle = @"American Boxing and Fitness";
 
             // create an Open Graph action
             id<FBOpenGraphAction> action = (id<FBOpenGraphAction>)[FBGraphObject graphObject];
-            [action setObject:object forKey:@"dish"];
+            [action setObject:object forKey:@"class"];
             [action setPlace:place];
             //[action setImage:@"http://i.imgur.com/3qxV03c.png"];
             [action setImage:@[@{@"url": [result objectForKey:@"uri"], @"user_generated" : @"false" }]];
             
             
             // create action referencing user owned object
-            [FBRequestConnection startForPostWithGraphPath:@"/me/com_liang_abphoto:eat" graphObject:action completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            [FBRequestConnection startForPostWithGraphPath:@"/me/com_liang_abphoto:take" graphObject:action completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
                 if(!error) {
                     NSLog(@"OG story posted, story id: %@", [result objectForKey:@"id"]);
                     [[[UIAlertView alloc] initWithTitle:@"OG story posted"
