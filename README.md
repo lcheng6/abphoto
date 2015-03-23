@@ -21,28 +21,18 @@ A selection of 10 pre-set filters from sepia, vignetting, overexposure and more 
 
 ### Watermarking
 Adding American Boxing Gym's official logo to the photo to the captured and filtered photo.  Rotate, enlarge, add drop shadow, and change the color of the drop shadow.
-<div id="container4">
-  <div id="container3">
-    <div id="container2">
-      <div id="container1">
+* Watermark can be reoriented and rotated at will
+* 6 different ways to change the direction of drap shadows in terms of length of direction
+* Add multiple colors to drop shadow including Thai Royal Purple and Pink (Thai fighting color)
+
 <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity" />
-</div>
 
-<div>
 <img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark" />
-</div>
 
-<div>
-<img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" />
-</div>
+<img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" alt="Add drop shadow" title="Add different style of drops shadow />
 
-<div>
 <img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" />
-</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 ### Sharing and Facebook publishing 
-
+Upload photos to Facebook with FBAPI's timeline feature, check in to the gym and register your workout, or simply upload a photo among friends with sharesheet
+<img src="screenshots/sharing%20for%20facebook.PNG" height="355" width="200" alt="Facebook Sharing" title="Share Sheet" />
