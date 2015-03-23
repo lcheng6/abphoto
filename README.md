@@ -13,22 +13,32 @@ abphoto is a demonstration app for UI design, photo manipulation, and social app
 ##Features
 1. Photo Taking
 Photo with custom overlay and custom shutter botton to take a photo.  
+<span>
 <a href="url"><img src="screenshots/camera%20overlay.PNG" height="355" width="200" ></a>
+</span>
 
 2. Photo Filtering
 A selection of 10 pre-set filters
+<span>
 <a href="url"><img src="screenshots/filter.PNG" height="355" width="200" ></a>
+</span>
 
 3. Watermarking
 
-<a href="screenshots/logo%20opacity.PNG">
-  <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity">
-</a>
+<span>
+<figure>
+  <a href="screenshots/logo%20opacity.PNG">
+    <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity">
+  </a>
+<figcaption> Fuck you!</figcaption>
+</figure>
+
+
 <a href="screenshots/logo%20sizing%20rotation.PNG">
-<img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark">
+  <img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark">
 </a>
 <a href="screenshots/logo%20drop%20shadow.PNG"><img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" ></a>
 <a href="screenshots/logo%20drop%20shadow%202.PNG"><img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" ></a>
-
+</span>
 4. Sharing and Facebook publishing 
 
