@@ -21,10 +21,10 @@ A selection of 10 pre-set filters
 
 3. Watermarking
 
-<a href="url"><img src="screenshots/logo%20opacity.PNG" height="355" width="200" ></a>
-<a href="url"><img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" ></a>
-<a href="url"><img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" ></a>
-<a href="url"><img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" ></a>
+<a href="screenshots/logo%20opacity.PNG"><img src="screenshots/logo%20opacity.PNG" height="355" width="200" ></a>
+<a href="screenshots/logo%20sizing%20rotation.PNG"><img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" ></a>
+<a href="screenshots/logo%20drop%20shadow.PNG"><img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" ></a>
+<a href="screenshots/logo%20drop%20shadow%202.PNG"><img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" ></a>
 
 4. Sharing and Facebook publishing 
 
