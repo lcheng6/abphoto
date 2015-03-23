@@ -12,12 +12,19 @@ abphoto is a demonstration app for UI design, photo manipulation, and social app
 
 ##Features
 1. Photo Taking
-
 Photo with custom overlay and custom shutter botton to take a photo.  
-[alt Text](https://github.com/lcheng6/abphoto/blob/master/screenshots/camera%20overlay.PNG "hehe")
-![Alt text](http://github.com/lcheng6/abphoto/blob/master/screenshots/camera%20overlay.PNG "Optional title")
+<a href="url"><img src="screenshots/camera%20overlay.PNG" height="355" width="200" ></a>
 
 2. Photo Filtering
+A selection of 10 pre-set filters
+<a href="url"><img src="screenshots/filter.PNG" height="355" width="200" ></a>
 
-3. Sharing and Facebook publishing 
+3. Watermarking
+
+<a href="url"><img src="screenshots/logo%20opacity.PNG" height="355" width="200" ></a>
+<a href="url"><img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" ></a>
+<a href="url"><img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" ></a>
+<a href="url"><img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" ></a>
+
+4. Sharing and Facebook publishing 
 
