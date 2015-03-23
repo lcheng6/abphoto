@@ -31,6 +31,7 @@ Adding American Boxing Gym's official logo to the photo to the captured and filt
 <img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" />
 
 ### Sharing and Facebook publishing 
-Sign in to Faceook!  Allows the user to upload photos to Facebook with FB API's timeline feature, check in to the gym and post your workout on gym's business page, or simply upload a photo among friends with sharesheet
+Sign in to Faceook!  Allows the user to upload photos to Facebook with FB API's timeline feature, check in to the gym and post your workout on gym's business page, or simply upload a photo among friends with sharesheet. 
+
 <img src="screenshots/signin%20for%20facebook.PNG" height="355" width="200" alt="Facebook Sharing" title="Share Sheet" />
 <img src="screenshots/sharing%20for%20facebook2.PNG" height="355" width="200" alt="Facebook Sharing" title="Share Sheet" />
