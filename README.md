@@ -26,11 +26,8 @@ Adding American Boxing Gym's official logo to the photo to the captured and filt
 * Add multiple colors to drop shadow including Thai Royal Purple and Pink (Thai fighting color)
 
 <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity" />
-
 <img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark" />
-
-<img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" alt="Add drop shadow" title="Add different style of drops shadow />
-
+<img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" alt="Add drop shadow" title="Add different style of drops shadow" />
 <img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" />
 
 ### Sharing and Facebook publishing 
