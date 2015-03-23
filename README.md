@@ -21,8 +21,12 @@ A selection of 10 pre-set filters
 
 3. Watermarking
 
-<a href="screenshots/logo%20opacity.PNG"><img src="screenshots/logo%20opacity.PNG" height="355" width="200" ></a>
-<a href="screenshots/logo%20sizing%20rotation.PNG"><img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" ></a>
+<a href="screenshots/logo%20opacity.PNG">
+  <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity">
+</a>
+<a href="screenshots/logo%20sizing%20rotation.PNG">
+<img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark">
+</a>
 <a href="screenshots/logo%20drop%20shadow.PNG"><img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" ></a>
 <a href="screenshots/logo%20drop%20shadow%202.PNG"><img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" ></a>
 
