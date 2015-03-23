@@ -15,7 +15,7 @@ Photo with custom overlay and custom shutter botton to take a photo.
   <img src="screenshots/camera%20overlay.PNG" height="355" width="200" />
 
 ### Photo Filtering
-A selection of 10 pre-set filters from sepia to overexposure with effect previews
+A selection of 10 pre-set filters from sepia, vignetting, overexposure and more with effect previews
   <img src="screenshots/filter.PNG" height="355" width="200" />
   <img src="screenshots/filter%202.PNG height="355" width="200 />
 
