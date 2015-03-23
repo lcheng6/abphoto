@@ -12,28 +12,19 @@ abphoto is a demonstration app for UI design, photo manipulation, and social app
 ##Features
 1. Photo Taking
 Photo with custom overlay and custom shutter botton to take a photo.  
-  <img src="screenshots/camera%20overlay.PNG" height="355" width="200" >
+  <img src="screenshots/camera%20overlay.PNG" height="355" width="200" />
 
 2. Photo Filtering
 A selection of 10 pre-set filters
-<a href="url"><img src="screenshots/filter.PNG" height="355" width="200" ></a>
+  <img src="screenshots/filter.PNG" height="355" width="200" />
 
 3. Watermarking
 
-<span>
-<figure>
-  <a href="screenshots/logo%20opacity.PNG">
-    <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity">
-  </a>
 
-</figure>
+<img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity" />
+<img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark" />
+<img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" />
+<img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" />
 
-
-<a href="screenshots/logo%20sizing%20rotation.PNG">
-  <img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark">
-</a>
-<a href="screenshots/logo%20drop%20shadow.PNG"><img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" ></a>
-<a href="screenshots/logo%20drop%20shadow%202.PNG"><img src="screenshots/logo%20drop%20shadow%202.PNG" height="355" width="200" ></a>
-</span>
 4. Sharing and Facebook publishing 
 
