@@ -15,11 +15,11 @@ Photo with custom overlay and custom shutter botton to take a photo.
   <img src="screenshots/camera%20overlay.PNG" height="355" width="200" />
 
 2. Photo Filtering
-A selection of 10 pre-set filters
+A selection of 10 pre-set filters from sepia to overexposure with effect previews
   <img src="screenshots/filter.PNG" height="355" width="200" />
+  <img src="screenshots/filter%202.PNG height="355" width="200 />
 
 3. Watermarking
-
 
 <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity" />
 <img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark" />
