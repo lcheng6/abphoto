@@ -20,7 +20,7 @@ A selection of 10 pre-set filters from sepia, vignetting, overexposure and more 
   <img src="screenshots/filter%202.PNG height="355" width="200 />
 
 ### Watermarking
-
+Adding American Boxing Gym's official logo to the photo to the captured and filtered photo.  Rotate, enlarge, add drop shadow and change the color of the drop shadow.  
 <img src="screenshots/logo%20opacity.PNG" height="355" width="200" alt="Change Logo Opacity from 100% to 20%" title="Change Logo Opacity" />
 <img src="screenshots/logo%20sizing%20rotation.PNG" height="355" width="200" alt="Moving sizing and rotation of watermark" title="Moving sizing and rotation of watermark" />
 <img src="screenshots/logo%20drop%20shadow.PNG" height="355" width="200" />
